@@ -31,7 +31,7 @@
                                 <div class="icon"><span class="flaticon-view"></span></div>
                                 <div class="detais">
                                     <div class="timer">24</div>
-                                    <p>Total Views</p>
+                                    <p>Users</p>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <div class="icon"><span class="flaticon-chat"></span></div>
                                 <div class="detais">
                                     <div class="timer">12</div>
-                                    <p>Total Visitor Reviews</p>
+                                    <p>Agents</p>
                                 </div>
                             </div>
                         </div>

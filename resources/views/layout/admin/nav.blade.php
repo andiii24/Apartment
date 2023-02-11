@@ -50,7 +50,7 @@
                 <li class="last">
                     <a href="page-contact.html"><span class="title">Contact</span></a>
                 </li>
-                <li class="user_setting">
+                {{-- <li class="user_setting">
                     <div class="dropdown">
                         <a
                             class="btn dropdown-toggle"
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
             </ul>
         </nav>
     </div>

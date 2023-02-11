@@ -1,8 +1,11 @@
 <?php
+use App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PropertyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,36 +17,34 @@ use App\Http\Controllers\Admin;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+Route::auth();
 Route::get('/', function () {
     return view('admin.dashboard');
 });
 
-Auth::routes();
-// Route::namespace('App\Http\Controllers\Admin')->group(['middleware' => 'admin'], function () {
-    Route::middleware(['auth', 'admin'])->group(function () {
+Route::group(['middleware' => 'isAdmin'], function () {
+    Route::get('/dashboard', [AdminController::class,'index'])->name('admin.dashboard');
 
-    Route::get('dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
+    Route::get('properties', [PropertyController::class,'index']);
+    Route::get('create-properties', [PropertyController::class,'show']);
+    Route::get('edit-properties', [PropertyController::class,'edit']);
+    Route::post('update-properties', [PropertyController::class,'update']);
+    Route::get('add-properties', [PropertyController::class,'create']);
+    Route::post('register-properties', [PropertyController::class,'add']);
+    Route::delete('delete-properties', [PropertyController::class,'destroy']);
+
+    Route::post('users', [UserController::class,'index']);
+    Route::post('create-user', [UserController::class,'show']);
+    Route::post('add-user', [UserController::class,'create']);
+
 });
 // Route::prefix('/')->namespace('App\Http\Controllers\Admin')->group(['middleware' => ['admin']], function () {
 //     Route::get('/dashboard', 'AdminController@index');
 // });
 
 // Route::middleware(['auth'])->group(function () {
-//     Route::get('properties', 'Admin\PropertyController@index');
-//     Route::get('create-properties', 'Admin\PropertyController@show');
-//     Route::get('edit-properties', 'Admin\PropertyController@edit');
-//     Route::post('update-properties', 'Admin\PropertyController@update');
-//     Route::post('add-properties', 'Admin\PropertyController@create');
-//     Route::delete('delete-properties', 'Admin\PropertyController@destroy');
 // });
 // // Route::middleware(['admin'])->group(function () {
-// Route::post('users', 'Admin\UserController@index');
-// Route::post('create-user', 'Admin\UserController@show');
-// Route::post('add-user', 'Admin\UserController@create');
-// Route::get('my-orders', 'Frontend\UserController@index');
-// Route::get('view-order/{id}', 'Frontend\UserController@view');
-// Route::get('wishlist', 'Frontend\WishListController@index');
 // // });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

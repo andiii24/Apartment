@@ -14,7 +14,6 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -24,7 +23,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.property.view');
     }
 
     /**
