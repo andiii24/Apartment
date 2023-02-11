@@ -38,7 +38,7 @@
                                     <h4 class="mb30">Create Listing</h4>
                                     <div class="my_profile_setting_input form-group">
                                         <label for="propertyTitle">Property Title</label>
-                                        <input type="text" class="form-control" id="propertyTitle">
+                                        <input type="text" class="form-control" name="" id="propertyTitle">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -505,7 +505,7 @@
                     </div>
                 </div>
                 <div class="row mt50">
-                    <div class="col-lg-12">
+                     <div class="col-lg-12">
                         <div class="copyright-widget text-center">
                             <p>© 2020 Find House. Made with love.</p>
                         </div>
