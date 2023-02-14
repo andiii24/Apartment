@@ -9,7 +9,7 @@ class Property extends Model
 {
     use HasFactory;
     protected $table = 'properties';
-    protected $fillable = ['location_id', 'bedroom', 'property_type', 'payment_type', 'property_status', 'property_description', 'size', 'price'];
+    protected $fillable = ['title,location_id', 'bedroom', 'property_type', 'payment_type', 'property_status', 'property_description', 'size', 'price'];
 
     public function location()
     {

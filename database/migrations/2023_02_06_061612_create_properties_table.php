@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->required();
             $table->string('location_id')->required();
             $table->string('bedroom')->required();
             $table->string('property_type')->required();

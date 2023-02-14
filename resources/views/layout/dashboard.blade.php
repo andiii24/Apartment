@@ -81,6 +81,7 @@
         @include('layout.admin.sidebar')
         <!-- Our Dashbord -->
         @yield('content')
+        @include('layout.admin.footer')
         <a
             class="scrollToHome"
             href="#"

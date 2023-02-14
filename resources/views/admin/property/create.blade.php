@@ -1,110 +1,158 @@
 @extends('layout.dashboard')
 @section('content')
-<section class="our-dashbord dashbord bgc-f7 pb50">
-    <div class="container-fluid ovh">
-        <div class="row">
-            <div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
-            <div class="col-lg-9 col-xl-10 maxw100flex-992">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dashboard_navigationbar dn db-992">
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
-                                <ul id="myDropdown" class="dropdown-content">
-                                    <li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
-                                    <li><a href="page-message.html"><span class="flaticon-envelope"></span> Message</a></li>
-                                    <li><a href="page-my-properties.html"><span class="flaticon-home"></span> My Properties</a></li>
-                                    <li><a href="page-my-favorites.html"><span class="flaticon-heart"></span> My Favorites</a></li>
-                                    <li><a href="page-my-savesearch.html"><span class="flaticon-magnifying-glass"></span> Saved Search</a></li>
-                                    <li><a href="page-my-review.html"><span class="flaticon-chat"></span> My Reviews</a></li>
-                                    <li><a href="page-my-packages.html"><span class="flaticon-box"></span> My Package</a></li>
-                                    <li><a href="page-my-profile.html"><span class="flaticon-user"></span> My Profile</a></li>
-                                    <li class="active"><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
-                                    <li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 mb10">
-                        <div class="breadcrumb_content style2">
-                            <h2 class="breadcrumb_title">Add New Property</h2>
-                            <p>We are glad to see you again!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="my_dashboard_review">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h4 class="mb30">Create Listing</h4>
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="propertyTitle">Property Title</label>
-                                        <input type="text" class="form-control" name="" id="propertyTitle">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="my_profile_setting_textarea">
-                                        <label for="propertyDescription">Description</label>
-                                        <textarea class="form-control" id="propertyDescription" rows="7"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                        <label>Type</label>
-                                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                                            <option data-tokens="type1">Type1</option>
-                                            <option data-tokens="Type2">Type2</option>
-                                            <option data-tokens="Type3">Type3</option>
-                                            <option data-tokens="Type4">Type4</option>
-                                            <option data-tokens="Type5">Type5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                        <label>Status</label>
-                                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                                            <option data-tokens="Status1">Status1</option>
-                                            <option data-tokens="Status2">Status2</option>
-                                            <option data-tokens="Status3">Status3</option>
-                                            <option data-tokens="Status4">Status4</option>
-                                            <option data-tokens="Status5">Status5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="formGroupExamplePrice">Price</label>
-                                        <input type="text" class="form-control" id="formGroupExamplePrice">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="formGroupExampleArea">Area</label>
-                                        <input type="text" class="form-control" id="formGroupExampleArea">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-xl-4">
-                                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                        <label>Rooms</label>
-                                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                                            <option data-tokens="Status1">1</option>
-                                            <option data-tokens="Status2">2</option>
-                                            <option data-tokens="Status3">3</option>
-                                            <option data-tokens="Status4">4</option>
-                                            <option data-tokens="Status5">5</option>
-                                            <option data-tokens="Status6">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="my_profile_setting_input">
-                                        <button class="btn btn1 float-left">Back</button>
-                                        <button class="btn btn2 float-right">Next</button>
+    <section class="our-dashbord dashbord bgc-f7 pb50">
+        <div class="container-fluid ovh">
+            <div class="row">
+                <div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
+                <div class="col-lg-9 col-xl-10 maxw100flex-992">
+                    <form
+                        action="{{ url('insert-category') }}"
+                        method="POST"
+                        enctype="multipart/form-data"
+                    >
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="dashboard_navigationbar dn db-992">
+                                    <div class="dropdown">
+                                        <button
+                                            onclick="myFunction()"
+                                            class="dropbtn"
+                                        ><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
+                                        <ul
+                                            id="myDropdown"
+                                            class="dropdown-content"
+                                        >
+                                            <li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
+                                            <li><a href="page-message.html"><span class="flaticon-envelope"></span> Message</a></li>
+                                            <li><a href="page-my-properties.html"><span class="flaticon-home"></span> My Properties</a></li>
+                                            <li><a href="page-my-favorites.html"><span class="flaticon-heart"></span> My Favorites</a></li>
+                                            <li><a href="page-my-savesearch.html"><span class="flaticon-magnifying-glass"></span> Saved Search</a></li>
+                                            <li><a href="page-my-review.html"><span class="flaticon-chat"></span> My Reviews</a></li>
+                                            <li><a href="page-my-packages.html"><span class="flaticon-box"></span> My Package</a></li>
+                                            <li><a href="page-my-profile.html"><span class="flaticon-user"></span> My Profile</a></li>
+                                            <li class="active"><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+                                            <li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="my_dashboard_review mt30">
+                            <div class="col-lg-12 mb10">
+                                <div class="breadcrumb_content style2">
+                                    <h2 class="breadcrumb_title">Add New Property</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="my_dashboard_review">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h4 class="mb30">Create Listing</h4>
+                                            <div class="my_profile_setting_input form-group">
+                                                <label for="propertyTitle">Property Title</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="title"
+                                                    id="propertyTitle"
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input form-group">
+                                                <label for="formGroupExamplePrice">Price</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="formGroupExamplePrice"
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Property type</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                >
+                                                    <option data-tokens="type1">Type1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Payment type</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                >
+                                                    <option data-tokens="type1">Type1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Property Status</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                >
+                                                    <option data-tokens="type1">Type1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="my_profile_setting_textarea">
+                                                <label for="propertyDescription">Property Description</label>
+                                                <textarea
+                                                    class="form-control"
+                                                    id="propertyDescription"
+                                                    rows="7"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <div class="my_profile_setting_input form-group">
+                                                <label for="formGroupExamplePrice">Price</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="formGroupExamplePrice"
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <div class="my_profile_setting_input form-group">
+                                                <label for="formGroupExampleArea">Area</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="formGroupExampleArea"
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Rooms</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                >
+                                                    <option data-tokens="Status1">1</option>
+                                                    <option data-tokens="Status2">2</option>
+                                                    <option data-tokens="Status3">3</option>
+                                                    <option data-tokens="Status4">4</option>
+                                                    <option data-tokens="Status5">5</option>
+                                                    <option data-tokens="Status6">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="my_dashboard_review mt30">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4 class="mb30">Location</h4>
@@ -377,142 +425,31 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="my_dashboard_review mt30">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h4 class="mb30">Property media</h4>
-                                </div>
-                                <div class="col-lg-12">
-                                    <ul class="mb0">
-                                        <li class="list-inline-item">
-                                            <div class="portfolio_item">
-                                                <img class="img-fluid" src="images/property/fp1.jpg" alt="fp1.jpg">
-                                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                                            </div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <div class="portfolio_item">
-                                                <img class="img-fluid" src="images/property/fp2.jpg" alt="fp2.jpg">
-                                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                                            </div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <div class="portfolio_item">
-                                                <img class="img-fluid" src="images/property/fp3.jpg" alt="fp3.jpg">
-                                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="portfolio_upload">
-                                        <input type="file" name="myfile" />
-                                        <div class="icon"><span class="flaticon-download"></span></div>
-                                        <p>Drag and drop images here</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="resume_uploader mb30">
-                                        <h4>Attachments</h4>
-                                        <form class="form-inline">
-                                            <input class="upload-path">
-                                            <label class="upload">
-                                                <input type="file">
-                                                Select Attachment
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="my_profile_setting_input">
-                                        <button class="btn btn1 float-left">Back</button>
-                                        <button class="btn btn2 float-right">Next</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="my_dashboard_review mt30">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h4 class="mb30">Floor Plans</h4>
-                                    <button class="btn admore_btn mb30">Add More</button>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planDsecription">Plan Description</label>
-                                        <input type="text" class="form-control" id="planDsecription">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planBedrooms">Plan Bedrooms</label>
-                                        <input type="text" class="form-control" id="planBedrooms">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planBathrooms">Plan Bathrooms</label>
-                                        <input type="text" class="form-control" id="planBathrooms">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planPrice">Plan Price</label>
-                                        <input type="text" class="form-control" id="planPrice">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planPostfix">Price Postfix</label>
-                                        <input type="text" class="form-control" id="planPostfix">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label for="planSize">Plan Size</label>
-                                        <input type="text" class="form-control" id="planSize">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-4">
-                                    <div class="my_profile_setting_input form-group">
-                                        <label>Plan Image</label>
-                                        <div class="avatar-upload">
-                                            <div class="avatar-edit">
-                                                <input class="btn btn-thm" type="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-                                                <label for="imageUpload"></label>
-                                            </div>
-                                            <div class="avatar-preview">
-                                                <div id="imagePreview"></div>
+                        </div> --}}
+                                <div class="my_dashboard_review mt30">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h4 class="mb30">Property media</h4>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="portfolio_upload">
+                                                <input
+                                                    type="file"
+                                                    name="image"
+                                                    class="form-control-file"
+                                                    id="image"
+                                                >
+                                                <div class="icon"><span class="flaticon-download"></span></div>
+                                                <p>Drag and drop images here</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12">
-                                    <div class="my_profile_setting_textarea mt30-991">
-                                        <label for="planDescription">Plan Description</label>
-                                        <textarea class="form-control" id="planDescription" rows="7"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="my_profile_setting_input">
-                                        <button class="btn btn1 float-left">Back</button>
-                                        <button class="btn btn2 float-right">Next</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row mt50">
-                     <div class="col-lg-12">
-                        <div class="copyright-widget text-center">
-                            <p>© 2020 Find House. Made with love.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
