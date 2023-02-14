@@ -78,9 +78,15 @@
 
         <!-- Main Header Nav For Mobile -->
         {{-- sidenar --}}
-        @include('layout.admin.sidebar')
-        <!-- Our Dashbord -->
-        @yield('content')
+        <div class="row">
+            <div class="col-1">
+                @include('layout.admin.sidebar')
+            </div>
+            <!-- Our Dashbord -->
+            <div class="col-11">
+                @yield('content')
+            </div>
+        </div>
         @include('layout.admin.footer')
         <a
             class="scrollToHome"
