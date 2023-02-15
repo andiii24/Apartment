@@ -50,22 +50,20 @@ class PropertyController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
     // store the images
-    $imageNames = [];
-    if ($request->hasFile('images')) {
-        foreach ($request->file('images') as $image) {
-            $name = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('upload/images'), $name);
-            $imageNames[] = $name;
+    $images = [];
+    if ($request->hasfile('photos')) {
+        foreach ($request->file('photos') as $file) {
+            $imageName = uniqid() . '.' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/Property'), $imageName);
+            $images[] = $imageName;
         }
+    } else {
+        $images = "default.png";
     }
-
-    $imageData = [
-        'image_names' => json_encode($imageNames)
-    ];
 
 
         $property = new Property;
-        $property->image = $imageData;
+        $property->images = $images;
         $property->title = $request->input('title');
         $property->price = $request->input('price');
         $property->property_type = $request->input('property_type');

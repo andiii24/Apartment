@@ -9,10 +9,13 @@ class Property extends Model
 {
     use HasFactory;
     protected $table = 'properties';
-    protected $fillable = ['title,location_id', 'bedroom', 'property_type', 'payment_type', 'property_status', 'property_description', 'size', 'price'];
+    protected $fillable = ['title,location_id', 'bedroom', 'property_type', 'payment_type', 'property_status', 'property_description', 'size', 'price','images','service_type','bathroom'];
 
     public function location()
     {
         return $this->belogsTo(Location::class, 'location_id', 'id');
     }
+    protected $casts = [
+        'images' => 'array',
+    ];
 }

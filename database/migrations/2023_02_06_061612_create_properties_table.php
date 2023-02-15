@@ -25,7 +25,7 @@ return new class extends Migration
             $table->tinyInteger('property_status')->default('0');
             $table->longText('property_description');
             $table->string('size');
-            $table->text('image')->required();
+            $table->text('images')->required();
             $table->string('price')->required();
 
             $table->timestamps();

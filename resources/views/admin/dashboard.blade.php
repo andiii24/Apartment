@@ -45,14 +45,27 @@
                             </div>
                         </div>
                         <div class="col-xl-6 ">
-                            @foreach ($property as $image)
-                            @php
-                                $imageNames = json_decode($image->image_names);
-                            @endphp
-                            @foreach ($imageNames as $imageName)
-                                <img src="{{ asset('upload/images/' . $imageName) }}" alt="{{ $imageName }}">
-                            @endforeach
-                        @endforeach
+                            <ul>
+                                @if (is_array($property->images) || is_object($property->images))
+                                    @foreach ($property->images as $key => $imagee)
+                                        <li class="splide__slide">
+                                            <img
+                                                class="pre_serve"
+                                                src="{{ asset('uploads/Property/' . $imagee) }}"
+                                                alt=""
+                                            >
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <li class="splide__slide">
+                                        <img
+                                            class="pre_serve"
+                                            src="{{ asset('uploads/Property/' . $imagee) }}"
+                                            alt=""
+                                        >
+                                    </li>
+                                @endif
+                            </ul>
                         </div>
                     </div>
                     {{-- <div class="row mt50">
