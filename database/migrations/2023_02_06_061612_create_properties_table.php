@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('bedroom')->required();
             $table->string('bathroom')->required();
             $table->string('property_type')->required();
+            $table->string('service_type')->required();
             $table->string('payment_type')->required();
             $table->tinyInteger('property_status')->default('0');
             $table->longText('property_description');
             $table->string('size');
-            $table->longblob('image')->nullable();;
+            $table->text('image')->required();
             $table->string('price')->required();
 
             $table->timestamps();

@@ -41,35 +41,44 @@ class PropertyController extends Controller
             'price'=>'required || numeric',
             'property_type'=>'required',
             'payment_type'=>'required',
+            'service_type'=>'required',
             'property_description'=>'required',
             'size'=>'required||numeric',
             'location_id'=>'required',
             'bedroom'=>'integer',
             'bathroom'=>'integer',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-        $imageNames = [];
+    // store the images
+    $imageNames = [];
+    if ($request->hasFile('images')) {
         foreach ($request->file('images') as $image) {
-            $imageName = $image->getClientOriginalName();
-            $image->storeAs('public/images', $imageName);
-            $imageNames[] = $imageName;
+            $name = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('upload/images'), $name);
+            $imageNames[] = $name;
         }
+    }
 
-        // Save the image names to the database
+    $imageData = [
+        'image_names' => json_encode($imageNames)
+    ];
+
+
         $property = new Property;
+        $property->image = $imageData;
         $property->title = $request->input('title');
         $property->price = $request->input('price');
         $property->property_type = $request->input('property_type');
         $property->payment_type = $request->input('payment_type');
+        $property->service_type = $request->input('service_type');
         $property->property_description = $request->input('property_description');
         $property->size = $request->input('size');
         $property->location_id = $request->input('location_id');
         $property->bedroom = $request->input('bedroom');
         $property->bathroom = $request->input('bathroom');
-        $property->images = $imageNames;
         $property->save();
         // Redirect to the property index page
-        return redirect()->route('admin.property.index')
+        return redirect()->route('add-properties')
             ->with('success', 'Property added successfully.');
     }
 

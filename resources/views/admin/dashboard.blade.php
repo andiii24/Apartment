@@ -45,69 +45,14 @@
                             </div>
                         </div>
                         <div class="col-xl-6 ">
-                            <div class="recent_job_activity">
-                                <h4 class="title">Recent Activities</h4>
-                                <div class="grid">
-                                    <ul>
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-home"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Your listing <strong>Luxury Family Home</strong> has been approved!.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="grid">
-                                    <ul>
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-chat"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Kathy Brown left a review on <strong>Renovated Apartment</strong></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="grid">
-                                    <ul>
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-heart"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Someone favorites your <strong>Gorgeous Villa Bay View</strong> listing!</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="grid">
-                                    <ul>
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-home"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Your listing <strong>Luxury Family Home</strong> has been approved!</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="grid">
-                                    <ul>
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-chat"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Kathy Brown left a review on <strong>Renovated Apartment</strong></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="grid mb0">
-                                    <ul class="pb0 mb0 bb_none">
-                                        <li class="list-inline-item">
-                                            <div class="icon"><span class="flaticon-heart"></span></div>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p>Someone favorites your <strong>Gorgeous Villa Bay</strong> View listing!</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            @foreach ($property as $image)
+                            @php
+                                $imageNames = json_decode($image->image_names);
+                            @endphp
+                            @foreach ($imageNames as $imageName)
+                                <img src="{{ asset('upload/images/' . $imageName) }}" alt="{{ $imageName }}">
+                            @endforeach
+                        @endforeach
                         </div>
                     </div>
                     {{-- <div class="row mt50">

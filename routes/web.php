@@ -29,7 +29,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('create-properties', [PropertyController::class,'show']);
     Route::get('edit-properties', [PropertyController::class,'edit']);
     Route::post('update-properties', [PropertyController::class,'update']);
-    Route::get('add-properties', [PropertyController::class,'create']);
+    Route::get('add-properties', [PropertyController::class,'create'])->name('add-properties');
     Route::post('register-properties', [PropertyController::class,'store']);
     Route::delete('delete-properties', [PropertyController::class,'destroy']);
 
