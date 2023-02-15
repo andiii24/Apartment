@@ -6,7 +6,7 @@
                 <div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
                 <div class="col-lg-9 col-xl-10 maxw100flex-992">
                     <form
-                        action="{{ url('insert-category') }}"
+                        action="{{ url('register-properties') }}"
                         method="POST"
                         enctype="multipart/form-data"
                     >
@@ -46,107 +46,154 @@
                                 <div class="my_dashboard_review">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <h4 class="mb30">Create Listing</h4>
                                             <div class="my_profile_setting_input form-group">
-                                                <label for="propertyTitle">Property Title</label>
+                                                <label for="propertyTitle">Property Title *</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
                                                     name="title"
                                                     id="propertyTitle"
+                                                    required
                                                 >
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-xl-3">
                                             <div class="my_profile_setting_input form-group">
-                                                <label for="formGroupExamplePrice">Price</label>
+                                                <label for="formGroupExamplePrice">Price *</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
                                                     id="formGroupExamplePrice"
+                                                    name="price"
+                                                    required
                                                 >
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-xl-3">
                                             <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                                <label>Property type</label>
+                                                <label for="formGroupExamplePrice">Service Type *</label>
+                                                <select
+                                                class="selectpicker"
+                                                data-live-search="true"
+                                                data-width="100%"
+                                                name="service_type"
+                                                required
+                                            >
+                                                <option data-tokens="type1" value="loan" >Loan</option>
+                                                <option data-tokens="type1" value="sell" >Sell</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Property type *</label>
                                                 <select
                                                     class="selectpicker"
                                                     data-live-search="true"
                                                     data-width="100%"
+                                                    name="property_type"
+                                                    required
                                                 >
-                                                    <option data-tokens="type1">Type1</option>
+                                                    <option data-tokens="type1" value="apratama" >Apartma</option>
+                                                    <option data-tokens="type1" value="condominum" >Condominium</option>
+                                                    <option data-tokens="type1" value="town house" >Town House</option>
+                                                    <option data-tokens="type1" value="villa" >Villa</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-xl-3">
                                             <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                                <label>Payment type</label>
+                                                <label>Payment type *</label>
                                                 <select
                                                     class="selectpicker"
                                                     data-live-search="true"
                                                     data-width="100%"
+                                                    name="payment_type"
+                                                    required
                                                 >
-                                                    <option data-tokens="type1">Type1</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-xl-3">
-                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                                <label>Property Status</label>
-                                                <select
-                                                    class="selectpicker"
-                                                    data-live-search="true"
-                                                    data-width="100%"
-                                                >
-                                                    <option data-tokens="type1">Type1</option>
+                                                    <option value="monthly" data-tokens="type1">monthly</option>
+                                                    <option value="termly" data-tokens="type1">termly(3 month)</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="my_profile_setting_textarea">
-                                                <label for="propertyDescription">Property Description</label>
+                                                <label for="propertyDescription">Property Description *</label>
                                                 <textarea
                                                     class="form-control"
                                                     id="propertyDescription"
                                                     rows="7"
+                                                    name="property_description"
+                                                    required
                                                 ></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-3 col-xl-3">
                                             <div class="my_profile_setting_input form-group">
-                                                <label for="formGroupExamplePrice">Price</label>
+                                                <label for="formGroupExampleArea">Area *</label>
                                                 <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="formGroupExamplePrice"
-                                                >
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-xl-4">
-                                            <div class="my_profile_setting_input form-group">
-                                                <label for="formGroupExampleArea">Area</label>
-                                                <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     id="formGroupExampleArea"
+                                                    name="size"
+                                                    required
                                                 >
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-xl-4">
+                                        <div class="col-lg-3 col-xl-3">
                                             <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                                <label>Rooms</label>
+                                                <label>Bed Rooms *</label>
                                                 <select
                                                     class="selectpicker"
                                                     data-live-search="true"
                                                     data-width="100%"
+                                                    name="bedroom"
+                                                    required
                                                 >
-                                                    <option data-tokens="Status1">1</option>
-                                                    <option data-tokens="Status2">2</option>
-                                                    <option data-tokens="Status3">3</option>
-                                                    <option data-tokens="Status4">4</option>
-                                                    <option data-tokens="Status5">5</option>
-                                                    <option data-tokens="Status6">Other</option>
+                                                    <option data-tokens="Status1" value="1">1</option>
+                                                    <option data-tokens="Status2" value="2">2</option>
+                                                    <option data-tokens="Status3" value="3">3</option>
+                                                    <option data-tokens="Status4" value="4">4</option>
+                                                    <option data-tokens="Status5" value="5">5</option>
+                                                    <option data-tokens="Status6" value="6">6</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Location *</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                    name="location_id"
+                                                    required
+                                                >
+                                                    <option data-tokens="Status1" value="1">Bole</option>
+                                                    <option data-tokens="Status2" value="2">Lafto</option>
+                                                    <option data-tokens="Status3" value="3">Arada</option>
+                                                    <option data-tokens="Status4" value="4">Yeka</option>
+                                                    <option data-tokens="Status5" value="5">Lemi Kura</option>
+                                                    <option data-tokens="Status6" value="6">Kotebe</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xl-3">
+                                            <div class="my_profile_setting_input ui_kit_select_search form-group">
+                                                <label>Bathrooms *</label>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                    name="bathroom"
+                                                    required
+                                                >
+                                                    <option data-tokens="Status1" value="1">1</option>
+                                                    <option data-tokens="Status2" value="2">2</option>
+                                                    <option data-tokens="Status3" value="3">3</option>
+                                                    <option data-tokens="Status4" value="4">4</option>
+                                                    <option data-tokens="Status5" value="5">5</option>
+                                                    <option data-tokens="Status6" value="6">6</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -429,15 +476,17 @@
                                 <div class="my_dashboard_review mt30">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <h4 class="mb30">Property media</h4>
+                                            <h4 class="mb30">Property media *</h4>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="portfolio_upload">
                                                 <input
                                                     type="file"
-                                                    name="image"
+                                                    name="images[]"
                                                     class="form-control-file"
                                                     id="image"
+                                                    multiple
+                                                    required
                                                 >
                                                 <div class="icon"><span class="flaticon-download"></span></div>
                                                 <p>Drag and drop images here</p>
@@ -446,6 +495,9 @@
                                     </div>
                                 </div>
                             </div>
+                        <div class="col-md-12 mt-3 " style="display: flex; justify-content: center;">
+                            <button class="btn btn-success" type="submit">Submit</button>
+                        </div>
                         </div>
                     </form>
                 </div>

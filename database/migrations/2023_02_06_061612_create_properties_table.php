@@ -18,14 +18,13 @@ return new class extends Migration
             $table->string('title')->required();
             $table->string('location_id')->required();
             $table->string('bedroom')->required();
+            $table->string('bathroom')->required();
             $table->string('property_type')->required();
             $table->string('payment_type')->required();
             $table->tinyInteger('property_status')->default('0');
             $table->longText('property_description');
             $table->string('size');
-            $table->string('img1');
-            $table->string('img2');
-            $table->string('img3');
+            $table->longblob('image')->nullable();;
             $table->string('price')->required();
 
             $table->timestamps();
