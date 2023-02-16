@@ -54,7 +54,7 @@ class PropertyController extends Controller
     if ($request->hasfile('photos')) {
         foreach ($request->file('photos') as $file) {
             $imageName = uniqid() . '.' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/Property'), $imageName);
+            $file->move(public_path('upload/Property'), $imageName);
             $images[] = $imageName;
         }
     } else {

@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-xl-6 ">
                             <ul>
-                                @if (is_array($property->images) || is_object($property->images))
+                                {{-- @if (is_array($property->images) || is_object($property->images))
                                     @foreach ($property->images as $key => $imagee)
                                         <li class="splide__slide">
                                             <img
@@ -64,7 +64,7 @@
                                             alt=""
                                         >
                                     </li>
-                                @endif
+                                @endif --}}
                             </ul>
                         </div>
                     </div>
