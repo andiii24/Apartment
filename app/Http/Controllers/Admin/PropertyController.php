@@ -51,14 +51,14 @@ class PropertyController extends Controller
         ]);
     // store the images
     $images = [];
-    if ($request->hasfile('photos')) {
-        foreach ($request->file('photos') as $file) {
+    if ($request->hasfile('images')) {
+        foreach ($request->file('images') as $file) {
             $imageName = uniqid() . '.' . $file->getClientOriginalName();
             $file->move(public_path('upload/Property'), $imageName);
             $images[] = $imageName;
         }
     } else {
-        $images = "default.png";
+        $images = "default.jpg";
     }
 
 

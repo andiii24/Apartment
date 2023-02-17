@@ -35,23 +35,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
-                            <div class="ff_one style3">
-                                <div class="icon"><span class="flaticon-chat"></span></div>
-                                <div class="detais">
-                                    <div class="timer">12</div>
-                                    <p>Agents</p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-xl-6 ">
                             <ul>
-                                {{-- @if (is_array($property->images) || is_object($property->images))
+                                @if (is_array($property->images) || is_object($property->images))
                                     @foreach ($property->images as $key => $imagee)
                                         <li class="splide__slide">
                                             <img
                                                 class="pre_serve"
-                                                src="{{ asset('uploads/Property/' . $imagee) }}"
+                                                src="{{ asset('upload/Property/' . $imagee) }}"
                                                 alt=""
                                             >
                                         </li>
@@ -60,12 +51,21 @@
                                     <li class="splide__slide">
                                         <img
                                             class="pre_serve"
-                                            src="{{ asset('uploads/Property/' . $imagee) }}"
+                                            src="{{ asset('upload/Property/' . $imagee) }}"
                                             alt=""
                                         >
                                     </li>
-                                @endif --}}
+                                @endif
                             </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
+                            <div class="ff_one style3">
+                                <div class="icon"><span class="flaticon-chat"></span></div>
+                                <div class="detais">
+                                    <div class="timer">12</div>
+                                    <p>Agents</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {{-- <div class="row mt50">

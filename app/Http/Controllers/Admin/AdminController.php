@@ -15,8 +15,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $property=Property::find(11);
-        // dd($property->image);
+        $property=Property::find(3);
+
+        // if(is_array($property->images)){
+        //     dd($property->images);
+        // }
         return view('admin.dashboard',compact('property'));
     }
 
