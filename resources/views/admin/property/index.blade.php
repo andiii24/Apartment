@@ -3,9 +3,8 @@
     <section class="our-dashbord dashbord bgc-f7 pb50">
         <div class="container-fluid ovh">
             <div class="card">
-                <div class="card-header">
-                    <h4>Category Page</h4>
-                    <hr style="background-color: black">
+                <div class=" style2 mt-4 ml-5 mb-3 mb30-991">
+                    <h2 class="breadcrumb_title">Properties</h2>
                 </div>
                 <div class="card-body my_dashboard_review mb40">
                     <div class="table-responsive mt0">
