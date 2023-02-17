@@ -41,6 +41,11 @@
         rel="stylesheet"
         href="{{ asset('css/dashbord_navitaion.css') }}"
     >
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.datatables.net/v/bs5/dt-1.13.2/datatables.min.css"
+    />
     <!-- Responsive stylesheet -->
     <link
         rel="stylesheet"
@@ -183,6 +188,15 @@
         type="text/javascript"
         src="{{ asset('js/script.js') }}"
     ></script>
+    <script
+        type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/dt-1.13.2/datatables.min.js"
+    ></script>
+    <script>
+        $(function() {
+            $('#data_table').DataTable();
+        });
+    </script>
 </body>
 
 <!-- Mirrored from creativelayers.net/themes/findhouse-html/page-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Feb 2023 18:56:25 GMT -->

@@ -7,43 +7,63 @@
                     <h4>Category Page</h4>
                     <hr style="background-color: black">
                 </div>
-                <div class="card-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($category as $cat) --}}
-                            <tr>
-                                <td>Id</td>
-                                <td>Name</td>
-                                <td>Description</td>
-                                <td><img
-                                        style="width: 70px;height:70px;"
-                                        class="cate-img"
-                                        src=""
-                                        alt="image"
-                                    ></td>
-                                <td>
-                                    <a
-                                        href=""
-                                        class="btn btn-primary btn-sm"
-                                    >Edit</a>
-                                    <a
-                                        href=""
-                                        class="btn btn-danger btn-sm"
-                                    >Delete</a>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
-                        </tbody>
-                    </table>
+                <div class="card-body my_dashboard_review mb40">
+                    <div class="table-responsive mt0">
+                        <table
+                            class="table table-bordered table-striped"
+                            id="data_table"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>location</th>
+                                    <th>property type</th>
+                                    <th>property status</th>
+                                    <th>Sale/Loan</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($properties as $key => $item)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->location_id }}</td>
+                                        <td>{{ $item->property_type }}</td>
+                                        <td>
+                                            @if ($item->property_status == 0)
+                                                <span class="status_tag badge2">Published</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item->service_type }}</td>
+                                        <td>
+                                            <ul class="view_edit_delete_list mb0">
+                                                <li
+                                                    class="list-inline-item"
+                                                    data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="Edit"
+                                                ><a href="#"><span class="flaticon-edit"></span></a></li>
+                                                <li
+                                                    class="list-inline-item"
+                                                    data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="Show"
+                                                ><a href="#"><span class="flaticon-view"></span></a></li>
+                                                <li
+                                                    class="list-inline-item"
+                                                    data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="Delete"
+                                                ><a href="#"><span class="flaticon-garbage"></span></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

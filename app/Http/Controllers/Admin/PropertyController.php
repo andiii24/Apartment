@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class PropertyController extends Controller
 {
@@ -15,7 +15,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        return view('admin.property.index');
+        $properties = Property::all();
+        return view('admin.property.index',compact('properties'));
     }
 
     /**
@@ -38,30 +39,29 @@ class PropertyController extends Controller
     {
         // dd($request);
         $request->validate([
-            'title'=>'required || max:255',
-            'price'=>'required || numeric',
-            'property_type'=>'required',
-            'payment_type'=>'required',
-            'service_type'=>'required',
-            'property_description'=>'required',
-            'size'=>'required||numeric',
-            'location_id'=>'required',
-            'bedroom'=>'integer',
-            'bathroom'=>'integer',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'title' => 'required || max:255',
+            'price' => 'required || numeric',
+            'property_type' => 'required',
+            'payment_type' => 'required',
+            'service_type' => 'required',
+            'property_description' => 'required',
+            'size' => 'required||numeric',
+            'location_id' => 'required',
+            'bedroom' => 'integer',
+            'bathroom' => 'integer',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    // store the images
-    $images = [];
-    if ($request->hasfile('images')) {
-        foreach ($request->file('images') as $file) {
-            $imageName = uniqid() . '.' . $file->getClientOriginalName();
-            $file->move(public_path('upload/Property'), $imageName);
-            $images[] = $imageName;
+        // store the images
+        $images = [];
+        if ($request->hasfile('images')) {
+            foreach ($request->file('images') as $file) {
+                $imageName = uniqid() . '.' . $file->getClientOriginalName();
+                $file->move(public_path('upload/Property'), $imageName);
+                $images[] = $imageName;
+            }
+        } else {
+            $images = "default.jpg";
         }
-    } else {
-        $images = "default.jpg";
-    }
-
 
         $property = new Property;
         $property->images = $images;
