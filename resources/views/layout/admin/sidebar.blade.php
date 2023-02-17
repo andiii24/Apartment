@@ -11,7 +11,7 @@
             <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>Properties</span><i class="fa fa-angle-down pull-right"></i></a>
             <ul class="treeview-menu">
                 <li><a href="{{ url('add-properties') }}"><i class="fa fa-circle"></i> Add Properties</a></li>
-                <li><a href="#"><i class="fa fa-circle"></i> view Properties</a></li>
+                <li><a href="{{ url('properties') }}"><i class="fa fa-circle"></i> Properties</a></li>
             </ul>
         </li>
         <li class="treeview">

@@ -71,7 +71,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="preloader"></div>
+        {{-- <div class="preloader"></div> --}}
 
         <!-- Main Header Nav -->
         @include('layout.admin.nav')
@@ -79,11 +79,11 @@
         <!-- Main Header Nav For Mobile -->
         {{-- sidenar --}}
         <div class="row">
-            <div class="col-1">
+            <div class="col-2">
                 @include('layout.admin.sidebar')
             </div>
             <!-- Our Dashbord -->
-            <div class="col-11">
+            <div class="col-10">
                 @yield('content')
             </div>
         </div>

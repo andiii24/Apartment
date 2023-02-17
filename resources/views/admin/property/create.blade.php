@@ -73,15 +73,21 @@
                                             <div class="my_profile_setting_input ui_kit_select_search form-group">
                                                 <label for="formGroupExamplePrice">Service Type *</label>
                                                 <select
-                                                class="selectpicker"
-                                                data-live-search="true"
-                                                data-width="100%"
-                                                name="service_type"
-                                                required
-                                            >
-                                                <option data-tokens="type1" value="loan" >Loan</option>
-                                                <option data-tokens="type1" value="sell" >Sell</option>
-                                            </select>
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                    name="service_type"
+                                                    required
+                                                >
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="loan"
+                                                    >Loan</option>
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="sell"
+                                                    >Sell</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-xl-3">
@@ -94,10 +100,22 @@
                                                     name="property_type"
                                                     required
                                                 >
-                                                    <option data-tokens="type1" value="apratama" >Apartma</option>
-                                                    <option data-tokens="type1" value="condominum" >Condominium</option>
-                                                    <option data-tokens="type1" value="town house" >Town House</option>
-                                                    <option data-tokens="type1" value="villa" >Villa</option>
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="apratama"
+                                                    >Apartma</option>
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="condominum"
+                                                    >Condominium</option>
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="town house"
+                                                    >Town House</option>
+                                                    <option
+                                                        data-tokens="type1"
+                                                        value="villa"
+                                                    >Villa</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -111,8 +129,14 @@
                                                     name="payment_type"
                                                     required
                                                 >
-                                                    <option value="monthly" data-tokens="type1">monthly</option>
-                                                    <option value="termly" data-tokens="type1">termly(3 month)</option>
+                                                    <option
+                                                        value="monthly"
+                                                        data-tokens="type1"
+                                                    >monthly</option>
+                                                    <option
+                                                        value="termly"
+                                                        data-tokens="type1"
+                                                    >termly(3 month)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -150,12 +174,30 @@
                                                     name="bedroom"
                                                     required
                                                 >
-                                                    <option data-tokens="Status1" value="1">1</option>
-                                                    <option data-tokens="Status2" value="2">2</option>
-                                                    <option data-tokens="Status3" value="3">3</option>
-                                                    <option data-tokens="Status4" value="4">4</option>
-                                                    <option data-tokens="Status5" value="5">5</option>
-                                                    <option data-tokens="Status6" value="6">6</option>
+                                                    <option
+                                                        data-tokens="Status1"
+                                                        value="1"
+                                                    >1</option>
+                                                    <option
+                                                        data-tokens="Status2"
+                                                        value="2"
+                                                    >2</option>
+                                                    <option
+                                                        data-tokens="Status3"
+                                                        value="3"
+                                                    >3</option>
+                                                    <option
+                                                        data-tokens="Status4"
+                                                        value="4"
+                                                    >4</option>
+                                                    <option
+                                                        data-tokens="Status5"
+                                                        value="5"
+                                                    >5</option>
+                                                    <option
+                                                        data-tokens="Status6"
+                                                        value="6"
+                                                    >6</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -169,12 +211,30 @@
                                                     name="location_id"
                                                     required
                                                 >
-                                                    <option data-tokens="Status1" value="1">Bole</option>
-                                                    <option data-tokens="Status2" value="2">Lafto</option>
-                                                    <option data-tokens="Status3" value="3">Arada</option>
-                                                    <option data-tokens="Status4" value="4">Yeka</option>
-                                                    <option data-tokens="Status5" value="5">Lemi Kura</option>
-                                                    <option data-tokens="Status6" value="6">Kotebe</option>
+                                                    <option
+                                                        data-tokens="Status1"
+                                                        value="1"
+                                                    >Bole</option>
+                                                    <option
+                                                        data-tokens="Status2"
+                                                        value="2"
+                                                    >Lafto</option>
+                                                    <option
+                                                        data-tokens="Status3"
+                                                        value="3"
+                                                    >Arada</option>
+                                                    <option
+                                                        data-tokens="Status4"
+                                                        value="4"
+                                                    >Yeka</option>
+                                                    <option
+                                                        data-tokens="Status5"
+                                                        value="5"
+                                                    >Lemi Kura</option>
+                                                    <option
+                                                        data-tokens="Status6"
+                                                        value="6"
+                                                    >Kotebe</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -188,12 +248,30 @@
                                                     name="bathroom"
                                                     required
                                                 >
-                                                    <option data-tokens="Status1" value="1">1</option>
-                                                    <option data-tokens="Status2" value="2">2</option>
-                                                    <option data-tokens="Status3" value="3">3</option>
-                                                    <option data-tokens="Status4" value="4">4</option>
-                                                    <option data-tokens="Status5" value="5">5</option>
-                                                    <option data-tokens="Status6" value="6">6</option>
+                                                    <option
+                                                        data-tokens="Status1"
+                                                        value="1"
+                                                    >1</option>
+                                                    <option
+                                                        data-tokens="Status2"
+                                                        value="2"
+                                                    >2</option>
+                                                    <option
+                                                        data-tokens="Status3"
+                                                        value="3"
+                                                    >3</option>
+                                                    <option
+                                                        data-tokens="Status4"
+                                                        value="4"
+                                                    >4</option>
+                                                    <option
+                                                        data-tokens="Status5"
+                                                        value="5"
+                                                    >5</option>
+                                                    <option
+                                                        data-tokens="Status6"
+                                                        value="6"
+                                                    >6</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -495,9 +573,15 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class="col-md-12 mt-3 " style="display: flex; justify-content: center;">
-                            <button class="btn btn-success" type="submit">Submit</button>
-                        </div>
+                            <div
+                                class="col-md-12 mt-3 "
+                                style="display: flex; justify-content: center;"
+                            >
+                                <button
+                                    class="btn btn-success"
+                                    type="submit"
+                                >Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
