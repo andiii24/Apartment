@@ -24,12 +24,12 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     Route::get('properties', [PropertyController::class, 'index']);
-    Route::get('create-properties', [PropertyController::class, 'show']);
-    Route::get('edit-properties', [PropertyController::class, 'edit']);
-    Route::post('update-properties', [PropertyController::class, 'update']);
+    Route::get('show-property/{id}', [PropertyController::class, 'show']);
+    Route::get('edit-properties/{id}', [PropertyController::class, 'edit']);
+    Route::put('update-properties/{id}', [PropertyController::class, 'update']);
     Route::get('add-properties', [PropertyController::class, 'create'])->name('add-properties');
     Route::post('register-properties', [PropertyController::class, 'store']);
-    Route::delete('delete-properties', [PropertyController::class, 'destroy']);
+    Route::delete('delete-property/{}', [PropertyController::class, 'destroy']);
 
     Route::post('users', [UserController::class, 'index']);
     Route::post('create-user', [UserController::class, 'show']);
