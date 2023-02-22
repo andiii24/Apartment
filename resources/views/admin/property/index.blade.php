@@ -6,6 +6,11 @@
                 <div class=" style2 mt-4 ml-5 mb-3 mb30-991">
                     <h2 class="breadcrumb_title">Properties</h2>
                 </div>
+                <select id="status-filter">
+                    <option value="">All</option>
+                    <option value="0">Available</option>
+                    <option value="1">Sold</option>
+                </select>
                 <div class="card-body my_dashboard_review mb40">
                     <div class="table-responsive mt0">
                         <table

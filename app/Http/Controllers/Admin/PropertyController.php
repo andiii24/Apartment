@@ -16,8 +16,10 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all()->where('property_status', 0);
-        return view('admin.property.index', compact('properties'));
+        $properties = Property::all();
+        $sold = Property::where('property_status', 1)->get();
+        $available = Property::where('property_status', 0)->get();
+        return view('admin.property.index', compact('properties', 'available', 'sold'));
     }
 
     /**
@@ -179,7 +181,7 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         $property = Property::find($id);
-        $property->status = 1;
+        $property->property_status = 1;
         $property->save();
 
         return redirect()->route('properties')

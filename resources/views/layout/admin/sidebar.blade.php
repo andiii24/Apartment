@@ -33,3 +33,5 @@
         <li><a href="page-login.html"><i class="flaticon-logout"></i> <span>Logout</span></a></li>
     </ul>
 </div>
+@section('script')
+@endsection

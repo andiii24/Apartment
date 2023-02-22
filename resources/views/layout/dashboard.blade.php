@@ -65,7 +65,7 @@
         sizes="128x128"
         rel="shortcut icon"
     />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -193,8 +193,22 @@
         src="https://cdn.datatables.net/v/bs5/dt-1.13.2/datatables.min.js"
     ></script>
     <script>
-        $(function() {
-            $('#data_table').DataTable();
+        $(document).ready(function() {
+            var table = $('#data_table').DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": true,
+                "searching": true
+            });
+
+            $('#status-filter').on('change', function() {
+                var status = $(this).val();
+                if (status == '') {
+                    table.columns(4).search('').draw();
+                } else {
+                    table.columns(4).search(status).draw();
+                }
+            });
         });
     </script>
 </body>
