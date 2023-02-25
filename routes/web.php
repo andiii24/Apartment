@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,15 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('add-properties', [PropertyController::class, 'create'])->name('add-properties');
     Route::post('register-properties', [PropertyController::class, 'store']);
     Route::get('delete-property/{id}', [PropertyController::class, 'destroy']);
+
+    Route::get('users', [UsersController::class, 'index'])->name('locations');
+
+    Route::get('locations', [LocationController::class, 'index'])->name('locations');
+    Route::get('add-location', [LocationController::class, 'create'])->name('add-location');
+    Route::post('store-location', [LocationController::class, 'store']);
+    Route::get('edit-locations/{id}', [LocationController::class, 'edit']);
+    Route::put('update-locations/{id}', [LocationController::class, 'update'])->name('update-locations');
+    Route::get('delete-location/{id}', [LocationController::class, 'destroy']);
 
     Route::post('users', [UserController::class, 'index']);
     Route::post('create-user', [UserController::class, 'show']);

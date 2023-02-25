@@ -10,22 +10,22 @@
         <li class="treeview">
             <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>Properties</span><i class="fa fa-angle-down pull-right"></i></a>
             <ul class="treeview-menu">
-                <li><a href="{{ url('add-properties') }}"><i class="fa fa-circle"></i> Add Properties</a></li>
                 <li><a href="{{ url('properties') }}"><i class="fa fa-circle"></i> Properties</a></li>
+                <li><a href="{{ url('add-properties') }}"><i class="fa fa-circle"></i> Add Properties</a></li>
             </ul>
         </li>
         <li class="treeview">
             <a href="page-my-review.html"><i class="flaticon-user"></i><span> Users</span><i class="fa fa-angle-down pull-right"></i></a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle"></i> Add User</a></li>
-                <li><a href="#"><i class="fa fa-circle"></i> View Users</a></li>
+                <li><a href="{{ url('users') }}"><i class="fa fa-circle"></i> View Users</a></li>
+                <li><a href="{{ url('add-user') }}"><i class="fa fa-circle"></i> Add User</a></li>
             </ul>
         </li>
         <li class="treeview">
             <a href="page-my-review.html"><i class="fa fa-globe"></i><span> Locations</span><i class="fa fa-angle-down pull-right"></i></a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle"></i> Add Location</a></li>
-                <li><a href="#"><i class="fa fa-circle"></i> View Locations</a></li>
+                <li><a href="{{ url('locations') }}"><i class="fa fa-circle"></i>Locations</a></li>
+                <li><a href="{{ url('add-location') }}"><i class="fa fa-circle"></i> Add Location</a></li>
             </ul>
         </li>
         <li class="title"><span>Manage Account</span></li>

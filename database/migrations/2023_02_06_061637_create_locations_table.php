@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('city');
-            $table->string('subcity');
-            $table->string('specific_location');
             $table->timestamps();
         });
     }
