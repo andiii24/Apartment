@@ -23,15 +23,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($locations as $key => $item)
+                                @foreach ($users as $key => $item)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>
-                                            @if ($item->property_status == 0)
-                                                <span class="status_tag badge1">User</span>
+                                            @if ($item->role == 0)
+                                                <span class="status_tag badge3">User</span>
                                             @else
                                                 <span class="status_tag badge2">Admin</span>
                                             @endif

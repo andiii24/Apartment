@@ -2,6 +2,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,12 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::put('update-locations/{id}', [LocationController::class, 'update'])->name('update-locations');
     Route::get('delete-location/{id}', [LocationController::class, 'destroy']);
 
-    Route::post('users', [UserController::class, 'index']);
-    Route::post('create-user', [UserController::class, 'show']);
-    Route::post('add-user', [UserController::class, 'create']);
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('create-user', [UserController::class, 'create'])->name('users');
+    Route::post('store-user', [UserController::class, 'store'])->name('store-user');
+    Route::get('edit-user', [UserController::class, 'edit']);
+    Route::put('edit-user/{id}', [UserController::class, 'update']);
+    Route::get('delete-user/{id}', [UserController::class, 'delete']);
 
 });
 // Route::prefix('/')->namespace('App\Http\Controllers\Admin')->group(['middleware' => ['admin']], function () {

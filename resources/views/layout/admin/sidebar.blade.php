@@ -18,7 +18,7 @@
             <a href="page-my-review.html"><i class="flaticon-user"></i><span> Users</span><i class="fa fa-angle-down pull-right"></i></a>
             <ul class="treeview-menu">
                 <li><a href="{{ url('users') }}"><i class="fa fa-circle"></i> View Users</a></li>
-                <li><a href="{{ url('add-user') }}"><i class="fa fa-circle"></i> Add User</a></li>
+                <li><a href="{{ url('create-user') }}"><i class="fa fa-circle"></i> Add User</a></li>
             </ul>
         </li>
         <li class="treeview">
