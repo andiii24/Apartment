@@ -3,6 +3,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::auth();
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
+Route::get('properties', [FrontendController::class, 'properties'])->name('properties');
+Route::get('property', [FrontendController::class, 'property'])->name('property');
 
-Route::group(['middleware' => 'isAdmin'], function () {
+Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     Route::get('properties', [PropertyController::class, 'index'])->name('properties');

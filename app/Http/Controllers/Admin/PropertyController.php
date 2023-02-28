@@ -80,7 +80,7 @@ class PropertyController extends Controller
         $property->bathroom = $request->input('bathroom');
         $property->save();
         // Redirect to the property index page
-        return redirect()->route('properties')
+        return redirect()->route('admin/properties')
             ->with('success', 'Property added successfully.');
     }
 
@@ -168,7 +168,7 @@ class PropertyController extends Controller
         $property->save();
 
         // Redirect to the property index page
-        return redirect()->route('properties')
+        return redirect()->route('admin/properties')
             ->with('success', 'Property updated successfully.');
     }
 
@@ -184,7 +184,7 @@ class PropertyController extends Controller
         $property->property_status = 1;
         $property->save();
 
-        return redirect()->route('properties')
+        return redirect()->route('admin/properties')
             ->with('success', 'Property Deleted successfully.');
     }
 }

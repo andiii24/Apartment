@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Property;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Property;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -15,12 +16,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $property=Property::find(3);
+        $property = Property::all()->count();
+        $users = User::all()->count();
 
         // if(is_array($property->images)){
         //     dd($property->images);
         // }
-        return view('admin.dashboard',compact('property'));
+        return view('admin.dashboard', compact('property', 'users'));
     }
 
     /**

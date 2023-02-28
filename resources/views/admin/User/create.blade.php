@@ -6,7 +6,7 @@
                 <div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
                 <div class="col-lg-9 col-xl-10 maxw100flex-992">
                     <form
-                        action="{{ url('store-user') }}"
+                        action="{{ url('admin/store-user') }}"
                         method="POST"
                         enctype="multipart/form-data"
                     >

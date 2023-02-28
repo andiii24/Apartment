@@ -43,7 +43,7 @@ class LocationController extends Controller
         $location = new Location;
         $location->city = $request->input('city');
         $location->save();
-        return redirect()->route('locations')
+        return redirect()->route('admin/locations')
             ->with('success', 'Location added successfully.');
     }
 
@@ -90,7 +90,7 @@ class LocationController extends Controller
         }
         $location->city = $request->input('city');
         $location->save();
-        return redirect()->route('locations')
+        return redirect()->route('admin/locations')
             ->with('success', 'Location added successfully.');
     }
 
@@ -104,7 +104,7 @@ class LocationController extends Controller
     {
         $location = Location::find($id);
         $location->delete();
-        return redirect()->route('locations')
+        return redirect()->route('admin/locations')
             ->with('success', 'Location Deleted successfully.');
     }
 }
