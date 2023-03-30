@@ -23,7 +23,7 @@
                                 @foreach ($location as $key => $item)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $item->city }}</td>
+                                        <td>{{ $item->sub_city }}</td>
                                         <td>
                                             <ul class="view_edit_delete_list mb0">
                                                 <li
@@ -31,13 +31,13 @@
                                                     data-toggle="tooltip"
                                                     data-placement="top"
                                                     title="Edit"
-                                                ><a href="{{ url('edit-locations/' . $item->id) }}"><span class="flaticon-edit"></span></a></li>
+                                                ><a href="{{ url('admin/edit-locations/' . $item->id) }}"><span class="flaticon-edit"></span></a></li>
                                                 <li
                                                     class="list-inline-item"
                                                     data-toggle="tooltip"
                                                     data-placement="top"
                                                     title="Delete"
-                                                ><a href="{{ url('delete-location/' . $item->id) }}"><span class="flaticon-garbage"></span></a></li>
+                                                ><a href="{{ url('admin/delete-location/' . $item->id) }}"><span class="flaticon-garbage"></span></a></li>
                                             </ul>
                                         </td>
                                     </tr>

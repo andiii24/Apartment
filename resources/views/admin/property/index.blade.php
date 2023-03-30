@@ -48,19 +48,19 @@
                                                     data-toggle="tooltip"
                                                     data-placement="top"
                                                     title="Edit"
-                                                ><a href="{{ url('edit-properties/' . $item->id) }}"><span class="flaticon-edit"></span></a></li>
+                                                ><a href="{{ url('admin/edit-properties/' . $item->id) }}"><span class="flaticon-edit"></span></a></li>
                                                 <li
                                                     class="list-inline-item"
                                                     data-toggle="tooltip"
                                                     data-placement="top"
                                                     title="Show"
-                                                ><a href="{{ url('show-property/' . $item->id) }}"><span class="flaticon-view"></span></a></li>
+                                                ><a href="{{ url('admin/show-property/' . $item->id) }}"><span class="flaticon-view"></span></a></li>
                                                 <li
                                                     class="list-inline-item"
                                                     data-toggle="tooltip"
                                                     data-placement="top"
                                                     title="Delete"
-                                                ><a href="{{ url('delete-property/' . $item->id) }}"><span class="flaticon-garbage"></span></a></li>
+                                                ><a href="{{ url('admin/delete-property/' . $item->id) }}"><span class="flaticon-garbage"></span></a></li>
                                             </ul>
                                         </td>
                                     </tr>

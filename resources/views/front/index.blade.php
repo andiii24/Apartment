@@ -1420,35 +1420,37 @@
                                                 >{{ number_format_short($item->price) }} Br<small>
                                                         @if ($item->service_type == 'loan')
                                                             /{{ ucwords($item->payment_type) }}
-                                                    </small></a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="details">
-                        <div class="tc_content">
-                            <p class="text-thm">{{ ucwords($item->property_type) }}</p>
-                            <h4>{{ $item->title }}</h4>
-                            <p>
-                                <span class="flaticon-placeholder"></span> {{ $item->location }}
-                            </p>
-                            <ul class="prop_details mb0">
-                                <li class="list-inline-item"><a href="#">Beds: {{ $item->bedroom }}</a></li>
-                                <li class="list-inline-item"><a href="#">Baths: {{ $item->bathroom }}</a></li>
-                                <li class="list-inline-item"><a href="#">Sq Ft: {{ $item->size }}</a></li>
-                            </ul>
-                        </div>
-                        <div class="fp_footer">
-                            <div class="fp_pdate float-right">{{ $item->created_at->diffForHumans() }}</div>
+                                                        @endif
+                                                    </small>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="details">
+                                            <div class="tc_content">
+                                                <p class="text-thm">{{ ucwords($item->property_type) }}</p>
+                                                <h4>{{ $item->title }}</h4>
+                                                <p>
+                                                    <span class="flaticon-placeholder"></span> {{ $item->location->sub_city }}
+                                                </p>
+                                                <ul class="prop_details mb0">
+                                                    <li class="list-inline-item"><a href="#">Beds: {{ $item->bedroom }}</a></li>
+                                                    <li class="list-inline-item"><a href="#">Baths: {{ $item->bathroom }}</a></li>
+                                                    <li class="list-inline-item"><a href="#">Sq Ft: {{ $item->size }}</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="fp_footer">
+                                                <div class="fp_pdate float-right">{{ $item->created_at->diffForHumans() }}</div>
+                                                <div class="fp_pdate ">{{ $item->location->city }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-
-    </div>
-    </div>
-    </div>
-    </div>
     </div>
     </section>
 
@@ -1478,7 +1480,7 @@
                         <div class="overlay">
                             <div class="details">
                                 <h4>Bole</h4>
-                                <p>24 Properties</p>
+                                <p>{{ $bole }}</p>
                             </div>
                         </div>
                     </div>

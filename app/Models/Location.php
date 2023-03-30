@@ -10,7 +10,7 @@ class Location extends Model
 {
     use HasFactory;
     protected $table = 'locations';
-    protected $fillable = ['city', 'subcity', 'specific_location'];
+    protected $fillable = ['city', 'sub_city'];
     public function properties()
     {
         return $this->hasMany(Property::class);

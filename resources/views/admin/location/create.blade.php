@@ -45,13 +45,25 @@
                             <div class="col-lg-12">
                                 <div class="my_dashboard_review">
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
+                                            <div class="my_profile_setting_input form-group">
+                                                <label for="propertyTitle">City Name *</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="city"
+                                                    id="city"
+                                                    required
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
                                             <div class="my_profile_setting_input form-group">
                                                 <label for="propertyTitle">Sub City Name *</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    name="city"
+                                                    name="sub_city"
                                                     id="subcity"
                                                     required
                                                 >

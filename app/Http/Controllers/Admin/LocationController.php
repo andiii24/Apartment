@@ -39,11 +39,13 @@ class LocationController extends Controller
     {
         $request->validate([
             'city' => 'required || max:255',
+            'sub_city' => 'required || max:255',
         ]);
         $location = new Location;
         $location->city = $request->input('city');
+        $location->sub_city = $request->input('sub_city');
         $location->save();
-        return redirect()->route('admin/locations')
+        return redirect()->route('locations')
             ->with('success', 'Location added successfully.');
     }
 
@@ -81,6 +83,7 @@ class LocationController extends Controller
     {
         $request->validate([
             'city' => 'required || max:255',
+            'sub_city' => 'required || max:255',
         ]);
 
         $location = Location::find($id);
@@ -89,8 +92,9 @@ class LocationController extends Controller
             return redirect()->back()->with('error', 'location not found.');
         }
         $location->city = $request->input('city');
+        $location->sub_city = $request->input('sub_city');
         $location->save();
-        return redirect()->route('admin/locations')
+        return redirect()->route('locations')
             ->with('success', 'Location added successfully.');
     }
 
@@ -104,7 +108,7 @@ class LocationController extends Controller
     {
         $location = Location::find($id);
         $location->delete();
-        return redirect()->route('admin/locations')
+        return redirect()->route('locations')
             ->with('success', 'Location Deleted successfully.');
     }
 }
