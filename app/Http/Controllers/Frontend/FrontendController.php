@@ -11,7 +11,7 @@ class FrontendController extends Controller
     {
         $properties = Property::all();
         $bole = Property::where('location_id', '1')->count();
-        return view('front.index', compact('properties', 'bole'));
+        return view('front', compact('properties', 'bole'));
     }
     public function properties()
     {

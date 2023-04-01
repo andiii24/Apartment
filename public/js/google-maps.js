@@ -7,7 +7,7 @@
 function gMapHome () {
   if ($('.map-canvas').length) {
     $('.map-canvas').each(function () {
-      // getting options from html 
+      // getting options from html
       var Self = $(this);
       var mapName = Self.attr('id');
       var mapLat = Self.data('map-lat');
@@ -47,7 +47,7 @@ function gMapHome () {
       if ($(this).hasClass('skin2')) {
         var iconPath = 'images/resource/map-marker.png';
         var styles = [
-        {"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "on"} ] }, 
+        {"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "on"} ] },
         {"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#222222"} ] },
         {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "green"} ] },
         {"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
@@ -55,7 +55,7 @@ function gMapHome () {
         {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
         {"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
         {"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
-        {"featureType": "water", "elementType": "all", "stylers": [{"color": "blue"}, {"visibility": "on"}]}]; 
+        {"featureType": "water", "elementType": "all", "stylers": [{"color": "blue"}, {"visibility": "on"}]}];
       }
       if ($(this).hasClass('skin3')) {
         var iconPath = 'images/resource/map-marker.png';
@@ -98,14 +98,14 @@ function gMapHome () {
       });
       // if icon path setted then show marker
       if(iconPath) {
-        
+
         map.addMarker({
             icon: iconPath,
             lat: 51.510280,
               lng: -0.084028,
               title: 'Tenby ',
               infoWindow: {
-            content: 
+            content:
             '<img src="images/property/fp1.jpg" alt="fp1.jpg"/> <h5>Apartment</h5> <h4>Renovated Apartment</h4> <p>1421 San Pedro St, Los Angeles, CA</p> <p><span>Beds: 4</span> <span>Baths: 2</span> <span>Sq Ft: 5280</span></p>'
           }
         });
@@ -153,9 +153,9 @@ function gMapHome () {
               infoWindow: {
             content: '<img src="images/property/fp3.jpg" alt="fp3.jpg"/> <h5>Single Family Home</h5> <h4>Luxury Family Home</h4> <p>1421 San Pedro St, Los Angeles, CA</p> <p><span>Beds: 4</span> <span>Baths: 2</span> <span>Sq Ft: 5280</span></p>'
           }
-        });       
+        });
       }
-    });  
+    });
   };
 }
 
