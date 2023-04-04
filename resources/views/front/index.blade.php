@@ -4,9 +4,7 @@
     lang="en"
 >
 <!-- Mirrored from creativelayers.net/themes/findhouse-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Feb 2023 18:55:03 GMT -->
-
 @include('layout.front.head')
-
 <body>
     <div class="wrapper">
         <div class="preloader"></div>
