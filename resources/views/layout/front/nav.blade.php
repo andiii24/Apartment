@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"><span class="title">Property</span></a>
+                    <a href="{{ url('/properties') }}"><span class="title">Property</span></a>
                 </li>
                 <li class="last">
                     <a href="page-contact.html"><span class="title">Contact Us</span></a>

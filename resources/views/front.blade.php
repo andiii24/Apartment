@@ -1,4 +1,5 @@
 @extends('front.index')
+@section('title', 'Home')
 @section('content')
     <section class="home-one home1-overlay home1_bgi1">
         <div class="container">

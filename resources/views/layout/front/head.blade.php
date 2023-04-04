@@ -32,7 +32,7 @@
         name="CreativeLayers"
         content="ATFN"
     />
-    <title>List View</title>
+    <title>@yield('title')</title>
     <!-- FAVICON -->
     <link
         rel="stylesheet"

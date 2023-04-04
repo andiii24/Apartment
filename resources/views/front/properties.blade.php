@@ -1,4 +1,5 @@
 @extends('front.index')
+@section('title', 'Properties')
 @section('content')
     <section class="our-listing bgc-f7 pb30-991">
         <div class="container">
@@ -10,9 +11,9 @@
                             <li
                                 class="breadcrumb-item active text-thm"
                                 aria-current="page"
-                            >Simple Listing – Grid View</li>
+                            >Property Listing</li>
                         </ol>
-                        <h2 class="breadcrumb_title">Simple Listing – Grid View</h2>
+                        <h2 class="breadcrumb_title">Property Listing</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -119,14 +120,40 @@
                                     <li>
                                         <div class="search_option_two">
                                             <div class="candidate_revew_select">
-                                                <select class="selectpicker w100 show-tick">
-                                                    <option>Bathrooms</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
+                                                <select
+                                                    class="selectpicker"
+                                                    data-live-search="true"
+                                                    data-width="100%"
+                                                    name="bathroom"
+                                                >
+                                                    <option
+                                                        disabled
+                                                        selected
+                                                    >Bathroom</option>
+                                                    <option
+                                                        data-tokens="Status1"
+                                                        value="1"
+                                                    >1</option>
+                                                    <option
+                                                        data-tokens="Status2"
+                                                        value="2"
+                                                    >2</option>
+                                                    <option
+                                                        data-tokens="Status3"
+                                                        value="3"
+                                                    >3</option>
+                                                    <option
+                                                        data-tokens="Status4"
+                                                        value="4"
+                                                    >4</option>
+                                                    <option
+                                                        data-tokens="Status5"
+                                                        value="5"
+                                                    >5</option>
+                                                    <option
+                                                        data-tokens="Status6"
+                                                        value="6"
+                                                    >6</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -196,233 +223,6 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div
-                                            id="accordion"
-                                            class="panel-group"
-                                        >
-                                            <div class="panel">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        <a
-                                                            href="#panelBodyRating"
-                                                            class="accordion-toggle link"
-                                                            data-toggle="collapse"
-                                                            data-parent="#accordion"
-                                                        ><i class="flaticon-more"></i> Advanced features</a>
-                                                    </h4>
-                                                </div>
-                                                <div
-                                                    id="panelBodyRating"
-                                                    class="panel-collapse collapse"
-                                                >
-                                                    <div class="panel-body row">
-                                                        <div class="col-lg-12">
-                                                            <ul class="ui_kit_checkbox selectable-list float-left fn-400">
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck16"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck16"
-                                                                        >Air Conditioning</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck17"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck17"
-                                                                        >Barbeque</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck18"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck18"
-                                                                        >Gym</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck19"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck19"
-                                                                        >Microwave</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck20"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck20"
-                                                                        >TV Cable</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck21"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck21"
-                                                                        >Lawn</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck22"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck22"
-                                                                        >Refrigerator</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck23"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck23"
-                                                                        >Swimming Pool</label>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="ui_kit_checkbox selectable-list float-right fn-400">
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck24"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck24"
-                                                                        >WiFi</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck25"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck25"
-                                                                        >Sauna</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck26"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck26"
-                                                                        >Dryer</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck27"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck27"
-                                                                        >Washer</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck28"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck28"
-                                                                        >Laundry</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck29"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck29"
-                                                                        >Outdoor Shower</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            id="customCheck30"
-                                                                        >
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="customCheck30"
-                                                                        >Window Coverings</label>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <div class="search_option_button">
                                             <button
                                                 type="submit"
@@ -469,64 +269,66 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
-                            <div class="feat_property home7 style4">
-                                <div class="thumb">
-                                    <div class="fp_single_item_slider">
-                                        <div class="item">
-                                            <img
-                                                class="img-whp"
-                                                src="{{ asset('') }}images/property/fp1.jpg"
-                                                alt="fp1.jpg"
-                                            >
+                            @foreach ($properties as $item)
+                                <div class="feat_property style4">
+                                    <div class="thumb">
+                                        <div class="fp_single_item_slider">
+                                            <div class="item">
+                                                <img
+                                                    class="img-whp"
+                                                    src="{{ asset('images/property/fp1.jpg') }}"
+                                                    alt="fp1.jpg"
+                                                >
+                                            </div>
+                                            <div class="item">
+                                                <img
+                                                    class="img-whp"
+                                                    src="{{ asset('images/property/fp2.jpg') }}"
+                                                    alt="fp2.jpg"
+                                                >
+                                            </div>
                                         </div>
-                                        <div class="item">
-                                            <img
-                                                class="img-whp"
-                                                src="{{ asset('') }}images/property/fp2.jpg"
-                                                alt="fp2.jpg"
-                                            >
+                                        <div class="thmb_cntnt style2">
+                                            <ul class="tag mb0">
+                                                <li class="list-inline-item"><a href="#">For Rent</a></li>
+                                                <li class="list-inline-item"><a href="#">Featured</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="thmb_cntnt style3">
+                                            <ul class="icon mb0">
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
+                                            </ul>
+                                            <a
+                                                class="fp_price"
+                                                href="#"
+                                            >$13,000<small>/mo</small></a>
                                         </div>
                                     </div>
-                                    <div class="thmb_cntnt style2">
-                                        <ul class="tag mb0">
-                                            <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            <li class="list-inline-item"><a href="#">Featured</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="thmb_cntnt style3">
-                                        <ul class="icon mb0">
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                        </ul>
-                                        <a
-                                            class="fp_price"
-                                            href="#"
-                                        >$13,000<small>/mo</small></a>
+                                    <div class="details">
+                                        <div class="tc_content">
+                                            <p class="text-thm">Apartment</p>
+                                            <h4>Renovated Apartment</h4>
+                                            <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
+                                            <ul class="prop_details mb0">
+                                                <li class="list-inline-item"><a href="#">Beds: 4</a></li>
+                                                <li class="list-inline-item"><a href="#">Baths: 2</a></li>
+                                                <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="fp_footer">
+                                            <ul class="fp_meta float-left mb0">
+                                                <li class="list-inline-item"><a href="#"><img
+                                                            src="{{ asset('images/property/pposter1.png') }}"
+                                                            alt="pposter1.png"
+                                                        ></a></li>
+                                                <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
+                                            </ul>
+                                            <div class="fp_pdate float-right">4 years ago</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="details">
-                                    <div class="tc_content">
-                                        <p class="text-thm">Apartment</p>
-                                        <h4>Renovated Apartment</h4>
-                                        <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                        <ul class="prop_details mb0">
-                                            <li class="list-inline-item"><a href="#">Beds: 4</a></li>
-                                            <li class="list-inline-item"><a href="#">Baths: 2</a></li>
-                                            <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fp_footer">
-                                        <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('') }}images/property/pposter1.png"
-                                                        alt="pposter1.png"
-                                                    ></a></li>
-                                            <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
-                                        </ul>
-                                        <div class="fp_pdate float-right">4 years ago</div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
