@@ -211,30 +211,12 @@
                                                     name="location_id"
                                                     required
                                                 >
-                                                    <option
-                                                        data-tokens="Status1"
-                                                        value="1"
-                                                    >Bole</option>
-                                                    <option
-                                                        data-tokens="Status2"
-                                                        value="2"
-                                                    >Lafto</option>
-                                                    <option
-                                                        data-tokens="Status3"
-                                                        value="3"
-                                                    >Arada</option>
-                                                    <option
-                                                        data-tokens="Status4"
-                                                        value="4"
-                                                    >Yeka</option>
-                                                    <option
-                                                        data-tokens="Status5"
-                                                        value="5"
-                                                    >Lemi Kura</option>
-                                                    <option
-                                                        data-tokens="Status6"
-                                                        value="6"
-                                                    >Kotebe</option>
+                                                    @foreach ($location as $item)
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            value="{{ $item->id }}"
+                                                        >{{ $item->sub_city }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Location;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.property.create');
+        $location = Location::all();
+        return view('admin.property.create', compact('location'));
     }
 
     /**
@@ -80,7 +82,7 @@ class PropertyController extends Controller
         $property->bathroom = $request->input('bathroom');
         $property->save();
         // Redirect to the property index page
-        return redirect()->route('admin/properties')
+        return redirect()->route('admin.properties')
             ->with('success', 'Property added successfully.');
     }
 
@@ -168,7 +170,7 @@ class PropertyController extends Controller
         $property->save();
 
         // Redirect to the property index page
-        return redirect()->route('admin/properties')
+        return redirect()->route('admin.properties')
             ->with('success', 'Property updated successfully.');
     }
 
@@ -184,7 +186,7 @@ class PropertyController extends Controller
         $property->property_status = 1;
         $property->save();
 
-        return redirect()->route('admin/properties')
+        return redirect()->route('admin.properties')
             ->with('success', 'Property Deleted successfully.');
     }
 }

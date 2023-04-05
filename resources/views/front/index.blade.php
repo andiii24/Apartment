@@ -5,6 +5,7 @@
 >
 <!-- Mirrored from creativelayers.net/themes/findhouse-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Feb 2023 18:55:03 GMT -->
 @include('layout.front.head')
+
 <body>
     <div class="wrapper">
         <div class="preloader"></div>
@@ -23,80 +24,80 @@
     <!-- Wrapper End -->
     <script
         type="text/javascript"
-        src="js/jquery-3.3.1.js"
+        src="{{ asset('js/jquery-3.3.1.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/jquery-migrate-3.0.0.min.js"
+        src="{{ asset('js/jquery-migrate-3.0.0.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/popper.min.js"
+        src="{{ asset('js/popper.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/bootstrap.min.js"
+        src="{{ asset('js/bootstrap.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/jquery.mmenu.all.js"
+        src="{{ asset('js/jquery.mmenu.all.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/ace-responsive-menu.js"
+        src="{{ asset('js/ace-responsive-menu.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/bootstrap-select.min.js"
+        src="{{ asset('js/bootstrap-select.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/isotop.js"
+        src="{{ asset('js/snackbar.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/snackbar.min.js"
+        src="{{ asset('js/simplebar.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/simplebar.js"
+        src="{{ asset('js/parallax.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/parallax.js"
+        src="{{ asset('js/scrollto.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/scrollto.js"
+        src="{{ asset('js/jquery-scrolltofixed-min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/jquery-scrolltofixed-min.js"
+        src="{{ asset('js/jquery.counterup.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/jquery.counterup.js"
+        src="{{ asset('js/wow.min.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/wow.min.js"
+        src="{{ asset('js/progressbar.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/slider.js"
+        src="{{ asset('js/slider.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/pricing-slider.js"
+        src="{{ asset('js/pricing-slider.js') }}"
     ></script>
     <script
         type="text/javascript"
-        src="js/timepicker.js"
+        src="{{ asset('js/timepicker.js') }}"
     ></script>
     <!-- Custom script for all pages -->
     <script
         type="text/javascript"
-        src="js/script.js"
+        src="{{ asset('js/script.js') }}"
     ></script>
 </body>
 
