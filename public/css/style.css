@@ -5560,6 +5560,11 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
     width: 70%;
 }
 
+.fp_footer {
+    display: inline-block;
+    /* add any other necessary styles */
+}
+
 .feat_property.list .details .fp_footer {
     border: none;
     padding: 0 20px 10px;

@@ -85,8 +85,8 @@
                                                         ></span>
                                                         <div id="slider"></div>
                                                         <!-- <input type="text" class="amount" placeholder="$52,239">
-                                                                                                                                                                                                                                                                                                                                            <input type="text" class="amount2" placeholder="$985,14">
-                                                                                                                                                                                                                                                                                                                                            <div class="slider-range"></div> -->
+                                                                                                                                                                                                                                                                                                                                                                            <input type="text" class="amount2" placeholder="$985,14">
+                                                                                                                                                                                                                                                                                                                                                                            <div class="slider-range"></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -860,24 +860,11 @@
                     <div class="row">
                         @foreach ($properties as $item)
                             <div class="col-md-6 col-lg-6">
-                                <a href="{{ url('property/' . $item->id) }}">
-                                    <div class="feat_property style4">
-                                        <div class="thumb">
-                                            @if (is_array($item->images) || is_object($item->images))
-                                                <div class="fp_single_item_slider">
-                                                    @foreach ($item->images as $key => $imagee)
-                                                        <div class="item">
-                                                            <img
-                                                                class="img-whp"
-                                                                src="{{ asset('upload/Property/' . $imagee) }}"
-                                                                alt="fp1.jpg"
-                                                                style="height: 300px; object-fit: cover;"
-                                                            >
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            @else
-                                                <div class="fp_single_item_slider">
+                                <div class="feat_property style4">
+                                    <div class="thumb">
+                                        @if (is_array($item->images) || is_object($item->images))
+                                            <div class="fp_single_item_slider">
+                                                @foreach ($item->images as $key => $imagee)
                                                     <div class="item">
                                                         <img
                                                             class="img-whp"
@@ -886,39 +873,52 @@
                                                             style="height: 300px; object-fit: cover;"
                                                         >
                                                     </div>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <div class="fp_single_item_slider">
+                                                <div class="item">
+                                                    <img
+                                                        class="img-whp"
+                                                        src="{{ asset('upload/Property/' . $imagee) }}"
+                                                        alt="fp1.jpg"
+                                                        style="height: 300px; object-fit: cover;"
+                                                    >
                                                 </div>
-                                            @endif
-                                            <div class="thmb_cntnt style2">
-                                                <ul class="tag mb0">
-                                                    <li class="list-inline-item"><a href="#">
-                                                            @if ($item->service_type == 'loan')
-                                                                For Rent
-                                                            @else
-                                                                For Sell
-                                                            @endif
-                                                        </a></li>
-                                                    {{-- <li class="list-inline-item"><a href="#">Featured</a></li> --}}
-                                                </ul>
                                             </div>
-                                            <div class="thmb_cntnt style3">
-                                                <ul class="icon mb0">
-                                                    <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                                    <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                                </ul>
-                                                <a
-                                                    class="fp_price"
-                                                    href="#"
-                                                >{{ $item->price }} Birr
-                                                    @if ($item->service_type == 'loan')
-                                                        @if ($item->payment_type == 'monthly')
-                                                            <small>/mo</small>
+                                        @endif
+                                        <div class="thmb_cntnt style2">
+                                            <ul class="tag mb0">
+                                                <li class="list-inline-item"><a href="#">
+                                                        @if ($item->service_type == 'loan')
+                                                            For Rent
                                                         @else
-                                                            <small>/term</small>
+                                                            For Sell
                                                         @endif
-                                                    @endif
-                                                </a>
-                                            </div>
+                                                    </a></li>
+                                                {{-- <li class="list-inline-item"><a href="#">Featured</a></li> --}}
+                                            </ul>
                                         </div>
+                                        <div class="thmb_cntnt style3">
+                                            <ul class="icon mb0">
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
+                                            </ul>
+                                            <a
+                                                class="fp_price"
+                                                href="#"
+                                            >{{ $item->price }} Birr
+                                                @if ($item->service_type == 'loan')
+                                                    @if ($item->payment_type == 'monthly')
+                                                        <small>/mo</small>
+                                                    @else
+                                                        <small>/term</small>
+                                                    @endif
+                                                @endif
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="{{ url('selected-property/' . $item->id) }}">
                                         <div class="details">
                                             <div class="tc_content">
                                                 <p class="text-thm">{{ $item->property_type }}</p>
@@ -937,9 +937,9 @@
                                                 <div class="fp_pdate float-right">{{ $item->created_at->diffForHumans() }}</div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                </div>
                             </div>
+                            </a>
                         @endforeach
                     </div>
                     <div class="row">

@@ -19,9 +19,9 @@ class FrontendController extends Controller
 
         return view('front.properties', compact('properties'));
     }
-    public function property()
+    public function property($id)
     {
-        $properties = Property::all();
+        $properties = Property::find($id);
         return view('front.property', compact('properties'));
     }
 }

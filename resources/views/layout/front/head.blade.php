@@ -29,6 +29,10 @@
         rel="stylesheet"
         href="{{ asset('css/style.css') }}"
     >
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/magnific-popup.css') }}"
+    >
     <!-- Responsive stylesheet -->
     <link
         rel="stylesheet"

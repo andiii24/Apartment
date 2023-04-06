@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::auth();
 Route::get('properties', [FrontendController::class, 'properties'])->name('properties');
-Route::get('property', [FrontendController::class, 'property'])->name('property');
+Route::get('selected-property/{id}', [FrontendController::class, 'property'])->name('property');
 
 Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

@@ -94,11 +94,13 @@
         type="text/javascript"
         src="{{ asset('js/timepicker.js') }}"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <!-- Custom script for all pages -->
     <script
         type="text/javascript"
         src="{{ asset('js/script.js') }}"
     ></script>
+
 </body>
 
 <!-- Mirrored from creativelayers.net/themes/findhouse-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Feb 2023 18:55:29 GMT -->
