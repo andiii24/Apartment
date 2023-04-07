@@ -85,8 +85,8 @@
                                                         ></span>
                                                         <div id="slider"></div>
                                                         <!-- <input type="text" class="amount" placeholder="$52,239">
-                                                                                                                                                                                                                                                                                                                                                                            <input type="text" class="amount2" placeholder="$985,14">
-                                                                                                                                                                                                                                                                                                                                                                            <div class="slider-range"></div> -->
+                                                                                                                                                                                                                                                                                                                                                                                    <input type="text" class="amount2" placeholder="$985,14">
+                                                                                                                                                                                                                                                                                                                                                                                    <div class="slider-range"></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -420,9 +420,9 @@
                             <li
                                 class="breadcrumb-item active text-thm"
                                 aria-current="page"
-                            >Simple Listing – Grid View</li>
+                            >Properties</li>
                         </ol>
-                        <h2 class="breadcrumb_title">Simple Listing – Grid View</h2>
+                        <h2 class="breadcrumb_title">Properties</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">

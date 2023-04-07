@@ -22,6 +22,7 @@ class FrontendController extends Controller
     public function property($id)
     {
         $properties = Property::find($id);
-        return view('front.property', compact('properties'));
+        $similar = Property::where('property_type', $properties->property_type)->get();
+        return view('front.property', compact('properties', 'similar'));
     }
 }

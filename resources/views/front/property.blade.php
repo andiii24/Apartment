@@ -31,6 +31,23 @@
                                             class="slide slide-one"
                                             style="background-image: url({{ asset('images/home/1.jpg') }});height: 600px;"
                                         ></div>
+                                        @if (is_array($properties->images) || is_object($properties->images))
+                                            <div class="banner-style-one owl-theme owl-carousel">
+                                                @foreach ($properties->images as $key => $imagee)
+                                                    <div
+                                                        class="slide slide-one"
+                                                        style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 600px;"
+                                                    ></div>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <div class="banner-style-one owl-theme owl-carousel">
+                                                <div
+                                                    class="slide slide-one"
+                                                    style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 600px;"
+                                                ></div>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="carousel-btn-block banner-carousel-btn">
                                         <span class="carousel-btn left-btn"><i class="flaticon-left-arrow-1 left"></i></span>
@@ -274,192 +291,89 @@
                         <div class="col-lg-12">
                             <h4 class="mt30 mb30">Similar Properties</h4>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="feat_property">
-                                <div class="thumb">
-                                    <img
-                                        class="img-whp"
-                                        src="{{ asset('images/property/fp1.jpg') }}"
-                                        alt="fp1.jpg"
-                                    >
-                                    <div class="thmb_cntnt">
-                                        <ul class="tag mb0">
-                                            <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            <li class="list-inline-item"><a href="#">Featured</a></li>
-                                        </ul>
-                                        <ul class="icon mb0">
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                        </ul>
-                                        <a
-                                            class="fp_price"
-                                            href="#"
-                                        >$13,000<small>/mo</small></a>
+                        @foreach ($similar as $item)
+                            <div class="col-lg-6">
+                                <div class="feat_property">
+                                    <div class="thumb">
+                                        @if (is_array($item->images) || is_object($item->images))
+                                            <div class="fp_single_item_slider">
+                                                @foreach ($item->images as $key => $imagee)
+                                                    <div class="item">
+                                                        <img
+                                                            class="img-whp"
+                                                            src="{{ asset('upload/Property/' . $imagee) }}"
+                                                            alt="fp1.jpg"
+                                                            style="height: 300px; object-fit: cover;"
+                                                        >
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <div class="fp_single_item_slider">
+                                                <div class="item">
+                                                    <img
+                                                        class="img-whp"
+                                                        src="{{ asset('upload/Property/' . $imagee) }}"
+                                                        alt="fp1.jpg"
+                                                        style="height: 300px; object-fit: cover;"
+                                                    >
+                                                </div>
+                                            </div>
+                                        @endif
+                                        <div class="thmb_cntnt style2">
+                                            <ul class="tag mb0">
+                                                <li class="list-inline-item"><a href="#">
+                                                        @if ($item->service_type == 'loan')
+                                                            For Rent
+                                                        @else
+                                                            For Sell
+                                                        @endif
+                                                    </a></li>
+                                                {{-- <li class="list-inline-item"><a href="#">Featured</a></li> --}}
+                                            </ul>
+                                        </div>
+                                        <div class="thmb_cntnt style3">
+                                            <ul class="icon mb0">
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
+                                                <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
+                                            </ul>
+                                            <a
+                                                class="fp_price"
+                                                href="#"
+                                            >{{ $item->price }} Birr
+                                                @if ($item->service_type == 'loan')
+                                                    @if ($item->payment_type == 'monthly')
+                                                        <small>/mo</small>
+                                                    @else
+                                                        <small>/term</small>
+                                                    @endif
+                                                @endif
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="details">
-                                    <div class="tc_content">
-                                        <p class="text-thm">Apartment</p>
-                                        <h4>Renovated Apartment</h4>
-                                        <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                        <ul class="prop_details mb0">
-                                            <li class="list-inline-item"><a href="#">Beds: 4</a></li>
-                                            <li class="list-inline-item"><a href="#">Baths: 2</a></li>
-                                            <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fp_footer">
-                                        <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('images/property/pposter1.png') }}"
-                                                        alt="pposter1.png"
-                                                    ></a></li>
-                                            <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
-                                        </ul>
-                                        <div class="fp_pdate float-right">4 years ago</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="feat_property">
-                                <div class="thumb">
-                                    <img
-                                        class="img-whp"
-                                        src="{{ asset('images/property/fp2.jpg') }}"
-                                        alt="fp2.jpg"
-                                    >
-                                    <div class="thmb_cntnt">
-                                        <ul class="tag mb0">
-                                            <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                        </ul>
-                                        <ul class="icon mb0">
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                        </ul>
-                                        <a
-                                            class="fp_price"
-                                            href="#"
-                                        >$13,000<small>/mo</small></a>
-                                    </div>
-                                </div>
-                                <div class="details">
-                                    <div class="tc_content">
-                                        <p class="text-thm">Apartment</p>
-                                        <h4>Renovated Apartment</h4>
-                                        <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                        <ul class="prop_details mb0">
-                                            <li class="list-inline-item"><a href="#">Beds: 4</a></li>
-                                            <li class="list-inline-item"><a href="#">Baths: 2</a></li>
-                                            <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fp_footer">
-                                        <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('images/property/pposter1.png') }}"
-                                                        alt="pposter1.png"
-                                                    ></a></li>
-                                            <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
-                                        </ul>
-                                        <div class="fp_pdate float-right">4 years ago</div>
-                                    </div>
+                                    <a href="{{ url('selected-property/' . $item->id) }}">
+                                        <div class="details">
+                                            <div class="tc_content">
+                                                <p class="text-thm">{{ $item->property_type }}</p>
+                                                <h4>{{ $item->name }}</h4>
+                                                <p><span class="flaticon-placeholder"></span>{{ $item->location->sub_city }}</p>
+                                                <ul class="prop_details mb0">
+                                                    <li class="list-inline-item"><a href="#">Beds:{{ $item->bedroom }}</a></li>
+                                                    <li class="list-inline-item"><a href="#">Baths:{{ $item->bathroom }}</a></li>
+                                                    <li class="list-inline-item"><a href="#">Sq Ft: {{ $item->size }}square</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="fp_footer">
+                                                <ul class="fp_meta float-left mb0">
+                                                    <li class="list-inline-item"><a href="#">{{ $item->location->city }}</a></li>
+                                                </ul>
+                                                <div class="fp_pdate float-right">{{ $item->created_at->diffForHumans() }}</div>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="feat_property">
-                                <div class="thumb">
-                                    <img
-                                        class="img-whp"
-                                        src="{{ asset('images/property/fp3.jpg') }}"
-                                        alt="fp3.jpg"
-                                    >
-                                    <div class="thmb_cntnt">
-                                        <ul class="tag mb0">
-                                            <li class="list-inline-item"><a href="#">For Sale</a></li>
-                                        </ul>
-                                        <ul class="icon mb0">
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                        </ul>
-                                        <a
-                                            class="fp_price"
-                                            href="#"
-                                        >$13,000<small>/mo</small></a>
-                                    </div>
-                                </div>
-                                <div class="details">
-                                    <div class="tc_content">
-                                        <p class="text-thm">Apartment</p>
-                                        <h4>Renovated Apartment</h4>
-                                        <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                        <ul class="prop_details mb0">
-                                            <li class="list-inline-item"><a href="#">Beds: 4</a></li>
-                                            <li class="list-inline-item"><a href="#">Baths: 2</a></li>
-                                            <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fp_footer">
-                                        <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('images/property/pposter1.png') }}"
-                                                        alt="pposter1.png"
-                                                    ></a></li>
-                                            <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
-                                        </ul>
-                                        <div class="fp_pdate float-right">4 years ago</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="feat_property">
-                                <div class="thumb">
-                                    <img
-                                        class="img-whp"
-                                        src="{{ asset('images/property/fp1.jpg') }}"
-                                        alt="fp1.jpg"
-                                    >
-                                    <div class="thmb_cntnt">
-                                        <ul class="tag mb0">
-                                            <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            <li class="list-inline-item"><a href="#">Featured</a></li>
-                                        </ul>
-                                        <ul class="icon mb0">
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
-                                            <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                                        </ul>
-                                        <a
-                                            class="fp_price"
-                                            href="#"
-                                        >$13,000<small>/mo</small></a>
-                                    </div>
-                                </div>
-                                <div class="details">
-                                    <div class="tc_content">
-                                        <p class="text-thm">Apartment</p>
-                                        <h4>Renovated Apartment</h4>
-                                        <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                        <ul class="prop_details mb0">
-                                            <li class="list-inline-item"><a href="#">Beds: 4</a></li>
-                                            <li class="list-inline-item"><a href="#">Baths: 2</a></li>
-                                            <li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fp_footer">
-                                        <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('images/property/pposter1.png') }}"
-                                                        alt="pposter1.png"
-                                                    ></a></li>
-                                            <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
-                                        </ul>
-                                        <div class="fp_pdate float-right">4 years ago</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
