@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Location;
 use App\Models\Property;
 
 class FrontendController extends Controller
@@ -16,8 +17,9 @@ class FrontendController extends Controller
     public function properties()
     {
         $properties = Property::paginate(20);
+        $location = Location::all();
 
-        return view('front.properties', compact('properties'));
+        return view('front.properties', compact('properties', 'location'));
     }
     public function property($id)
     {
