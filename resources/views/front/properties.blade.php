@@ -7,11 +7,14 @@
                 <div class="col-lg-6">
                     <div class="breadcrumb_content style2 mb0-991">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li
                                 class="breadcrumb-item active text-thm"
                                 aria-current="page"
-                            >Properties</li>
+                            > <a
+                                    href="{{ url('properties') }}"
+                                    class="breadcrumb-item active text-thm"
+                                > Properties </a></li>
                         </ol>
                         <h2 class="breadcrumb_title">Properties</h2>
                     </div>
@@ -19,8 +22,7 @@
                 <div class="col-lg-6">
                     <div class="listing_list_style mb20-xsd tal-991">
                         <ul class="mb0">
-                            <li class="list-inline-item"><a href="#"><span class="fa fa-th-large"></span></a></li>
-                            <li class="list-inline-item"><a href="#"><span class="fa fa-th-list"></span></a></li>
+                            <li class="list-inline-item"><a href="{{ url('properties') }}"><span class="fa fa-th-large"> All</span></a></li>
                         </ul>
                     </div>
                     <div class="dn db-991 mt30 mb0">
@@ -36,199 +38,243 @@
             <div class="row">
                 <div class="col-lg-4 col-xl-4">
                     <div class="sidebar_listing_grid1 dn-991">
-                        <div class="sidebar_listing_list">
-                            <div class="sidebar_advanced_search_widget">
-                                <ul class="sasw_list mb0">
-                                    <li class="search_area">
-                                        <div class="form-group">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="exampleInputName12"
-                                                placeholder="keyword"
-                                            >
-                                            <label for="exampleInputEmail"><span class="flaticon-magnifying-glass"></span></label>
-                                        </div>
-                                    </li>
-                                    <li class="search_area">
-                                        <div class="form-group">
-                                            <select
-                                                class="selectpicker apartment-filter"
-                                                data-live-search="true"
-                                                data-width="100%"
-                                                name="location_id"
-                                            >
-                                                <option
-                                                    data-tokens="Status1"
-                                                    disabled
-                                                    selected
-                                                >Location</option>
-                                                @foreach ($location as $item)
-                                                    <option
-                                                        data-tokens="Status1"
-                                                        value="{{ $item->id }}"
-                                                    >{{ $item->sub_city }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="search_option_two">
-                                            <div class="candidate_revew_select">
+                        <form
+                            action="{{ route('search') }}"
+                            method="GET"
+                        >
+                            <div class="sidebar_listing_list">
+                                <div class="sidebar_advanced_search_widget">
+                                    <ul class="sasw_list mb0">
+                                        <li class="search_area">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="exampleInputName12"
+                                                    name="search"
+                                                    placeholder="keyword"
+                                                >
+                                            </div>
+                                        </li>
+                                        <li class="search_area">
+                                            <div class="form-group">
                                                 <select
                                                     class="selectpicker apartment-filter"
                                                     data-live-search="true"
                                                     data-width="100%"
-                                                    name="property_type"
+                                                    name="location_id"
                                                 >
                                                     <option
-                                                        data-tokens="type1"
+                                                        data-tokens="Status1"
                                                         disabled
                                                         selected
-                                                    >Property Type</option>
-                                                    <option data-tokens="type1">Apartma</option>
-                                                    <option
-                                                        data-tokens="type1"
-                                                        value="condominum"
-                                                    >Condominium</option>
-                                                    <option
-                                                        data-tokens="type1"
-                                                        value="town house"
-                                                    >Town House</option>
-                                                    <option
-                                                        data-tokens="type1"
-                                                        value="villa"
-                                                    >Villa</option>
+                                                    >Location</option>
+                                                    @foreach ($location as $item)
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            value="{{ $item->id }}"
+                                                        >{{ $item->sub_city }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="small_dropdown2">
-                                            <div
-                                                id="prncgs2"
-                                                class="btn dd_btn"
-                                            >
-                                                <span>Price</span>
-                                                <label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
-                                            </div>
-                                            <div class="dd_content2 style2">
-                                                <div class="pricing_acontent">
-                                                    <input
-                                                        type="text"
-                                                        class="amount"
-                                                        placeholder="$52,239"
+                                        </li>
+                                        <li>
+                                            <div class="search_option_two">
+                                                <div class="form-group">
+                                                    <select
+                                                        class="selectpicker apartment-filter"
+                                                        data-live-search="true"
+                                                        data-width="100%"
+                                                        name="property_type"
                                                     >
-                                                    <input
-                                                        type="text"
-                                                        class="amount2"
-                                                        placeholder="$985,14"
-                                                    >
-                                                    <div class="slider-range"></div>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            disabled
+                                                            selected
+                                                        >Property Type</option>
+                                                        <option data-tokens="type1">Apartma</option>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            value="condominum"
+                                                        >Condominium</option>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            value="town house"
+                                                        >Town House</option>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            value="villa"
+                                                        >Villa</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="search_option_two">
-                                            <div class="candidate_revew_select">
-                                                <select
-                                                    class="selectpicker apartment-filter"
-                                                    data-live-search="true"
-                                                    data-width="100%"
-                                                    name="service_type"
+                                        </li>
+                                        <li class="min_area list-inline-item">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="exampleInputName2"
+                                                    placeholder="Min Price"
+                                                    name="min_price"
                                                 >
-                                                    <option
-                                                        data-tokens="type1"
-                                                        disabled
-                                                        selected
-                                                    >Rent/Sell</option>
-                                                    <option
-                                                        data-tokens="type1"
-                                                        value="loan"
-                                                    >Loan</option>
-                                                    <option
-                                                        data-tokens="type1"
-                                                        value="sell"
-                                                    >Sell</option>
-                                                </select>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="search_option_two">
-                                            <div class="candidate_revew_select">
-                                                <select
-                                                    class="selectpicker apartment-filter"
-                                                    data-live-search="true"
-                                                    data-width="100%"
-                                                    name="service_type"
+                                        </li>
+                                        <li class="max_area list-inline-item">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="exampleInputName3"
+                                                    placeholder="Max Price"
+                                                    name="max_price"
                                                 >
-                                                    <option
-                                                        data-tokens="Status1"
-                                                        disabled
-                                                        selected
-                                                    >Bedroom</option>
-                                                    <option
-                                                        data-tokens="Status1"
-                                                        value="1"
-                                                    >1</option>
-                                                    <option
-                                                        data-tokens="Status2"
-                                                        value="2"
-                                                    >2</option>
-                                                    <option
-                                                        data-tokens="Status3"
-                                                        value="3"
-                                                    >3</option>
-                                                    <option
-                                                        data-tokens="Status4"
-                                                        value="4"
-                                                    >4</option>
-                                                    <option
-                                                        data-tokens="Status5"
-                                                        value="5"
-                                                    >5</option>
-                                                    <option
-                                                        data-tokens="Status6"
-                                                        value="6"
-                                                    >6</option>
-                                                </select>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="min_area list-inline-item">
-                                        <div class="form-group">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="exampleInputName2"
-                                                placeholder="Min Area"
-                                            >
-                                        </div>
-                                    </li>
-                                    <li class="max_area list-inline-item">
-                                        <div class="form-group">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="exampleInputName3"
-                                                placeholder="Max Area"
-                                            >
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="search_option_button">
-                                            <button
-                                                type="submit"
-                                                class="btn btn-block btn-thm"
-                                            >Search</button>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        </li>
+                                        <li>
+                                            <div class="search_option_two">
+                                                <div class="form-group">
+                                                    <select
+                                                        class="selectpicker apartment-filter"
+                                                        data-live-search="true"
+                                                        data-width="100%"
+                                                        name="service_type"
+                                                    >
+                                                        <option
+                                                            data-tokens="type1"
+                                                            disabled
+                                                            selected
+                                                        >Rent/Sell</option>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            value="loan"
+                                                        >Loan</option>
+                                                        <option
+                                                            data-tokens="type1"
+                                                            value="sell"
+                                                        >Sell</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="search_option_two">
+                                                <div class="form-group">
+                                                    <select
+                                                        class="selectpicker apartment-filter"
+                                                        data-live-search="true"
+                                                        data-width="100%"
+                                                        name="bedroom"
+                                                    >
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            disabled
+                                                            selected
+                                                        >Bedroom</option>
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            value="1"
+                                                        >1</option>
+                                                        <option
+                                                            data-tokens="Status2"
+                                                            value="2"
+                                                        >2</option>
+                                                        <option
+                                                            data-tokens="Status3"
+                                                            value="3"
+                                                        >3</option>
+                                                        <option
+                                                            data-tokens="Status4"
+                                                            value="4"
+                                                        >4</option>
+                                                        <option
+                                                            data-tokens="Status5"
+                                                            value="5"
+                                                        >5</option>
+                                                        <option
+                                                            data-tokens="Status6"
+                                                            value="6"
+                                                        >6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="search_option_two">
+                                                <div class="form-group">
+                                                    <select
+                                                        class="selectpicker apartment-filter"
+                                                        data-live-search="true"
+                                                        data-width="100%"
+                                                        name="bathroom"
+                                                    >
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            disabled
+                                                            selected
+                                                        >Bathroom</option>
+                                                        <option
+                                                            data-tokens="Status1"
+                                                            value="1"
+                                                        >1</option>
+                                                        <option
+                                                            data-tokens="Status2"
+                                                            value="2"
+                                                        >2</option>
+                                                        <option
+                                                            data-tokens="Status3"
+                                                            value="3"
+                                                        >3</option>
+                                                        <option
+                                                            data-tokens="Status4"
+                                                            value="4"
+                                                        >4</option>
+                                                        <option
+                                                            data-tokens="Status5"
+                                                            value="5"
+                                                        >5</option>
+                                                        <option
+                                                            data-tokens="Status6"
+                                                            value="6"
+                                                        >6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="min_area list-inline-item">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="exampleInputName2"
+                                                    placeholder="Min Area"
+                                                    name="min_area"
+                                                >
+                                            </div>
+                                        </li>
+                                        <li class="max_area list-inline-item">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="exampleInputName3"
+                                                    name="max_area"
+                                                    placeholder="Max Area"
+                                                >
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="search_option_button">
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-block btn-thm"
+                                                >Search</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
@@ -307,7 +353,7 @@
                                         <div class="details">
                                             <div class="tc_content">
                                                 <p class="text-thm">{{ $item->property_type }}</p>
-                                                <h4>{{ $item->name }}</h4>
+                                                <h4>{{ $item->title }}</h4>
                                                 <p><span class="flaticon-placeholder"></span>{{ $item->location->sub_city }}</p>
                                                 <ul class="prop_details mb0">
                                                     <li class="list-inline-item"><a href="#">Beds:{{ $item->bedroom }}</a></li>

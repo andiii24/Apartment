@@ -19,7 +19,7 @@
                 </button>
             </div>
             <a
-                href="#"
+                href="{{ url('/') }}"
                 class="navbar_brand float-left dn-smd"
             >
                 <img
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/properties') }}"><span class="title">Property</span></a>
+                    <a href="{{ url('/properties') }}"><span class="title">Properties</span></a>
                 </li>
                 <li class="last">
                     <a href="page-contact.html"><span class="title">Contact Us</span></a>
