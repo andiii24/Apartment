@@ -20014,6 +20014,23 @@ button.gm-ui-hover-effect:focus {
     top: -13px;
 }
 
+.cool-button {
+    background-color: #1e293e;
+    border-color: #1e293e;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: a;
+}
+
+.cool-button:hover {
+    background-color: #1d294e;
+    border-color: #1d293e;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 
 /* Disabled state; */
 

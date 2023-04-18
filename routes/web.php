@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     Route::get('properties', [PropertyController::class, 'index'])->name('admin.properties');
+    Route::get('deleted', [PropertyController::class, 'deleted'])->name('admin.deleted_properties');
     Route::get('show-property/{id}', [PropertyController::class, 'show']);
     Route::get('edit-properties/{id}', [PropertyController::class, 'edit']);
     Route::put('update-properties/{id}', [PropertyController::class, 'update']);

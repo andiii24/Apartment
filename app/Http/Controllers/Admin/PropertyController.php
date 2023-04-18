@@ -17,10 +17,15 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all();
-        $sold = Property::where('property_status', 1)->get();
-        $available = Property::where('property_status', 0)->get();
-        return view('admin.property.index', compact('properties', 'available', 'sold'));
+        $properties = Property::where('property_status', 0)->get();
+        $property = Property::where('property_status', 0)->first();
+        return view('admin.property.index', compact('properties', 'property'));
+    }
+    public function deleted()
+    {
+        $properties = Property::where('property_status', 1)->get();
+        $property = Property::where('property_status', 1)->first();
+        return view('admin.property.index', compact('properties', 'property'));
     }
 
     /**
@@ -94,7 +99,7 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        $property = Property::find($id);
+        $property = Property::first($id);
         return view('admin.property.show', compact('property'));
     }
 
@@ -106,7 +111,7 @@ class PropertyController extends Controller
      */
     public function edit($id)
     {
-        $property = Property::find($id);
+        $property = Property::first($id);
         return view('admin.property.edit', compact('property'));
     }
 
@@ -133,7 +138,7 @@ class PropertyController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $property = Property::find($id);
+        $property = Property::first($id);
 
         if (!$property) {
             return redirect()->back()->with('error', 'Property not found.');
@@ -182,7 +187,7 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        $property = Property::find($id);
+        $property = Property::first($id);
         $property->property_status = 1;
         $property->save();
 

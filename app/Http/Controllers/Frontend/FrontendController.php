@@ -17,7 +17,7 @@ class FrontendController extends Controller
     }
     public function properties()
     {
-        $properties = Property::paginate(20);
+        $properties = Property::where('property_status', '0')->paginate(20);
         $location = Location::all();
 
         return view('front.properties', compact('properties', 'location'));
