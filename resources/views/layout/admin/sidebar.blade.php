@@ -1,11 +1,15 @@
 <div class="dashboard_sidebar_menu dn-992">
     <ul class="sidebar-menu">
-        <li class="header"><img
-                src="{{ asset('images/header-logo2.png') }}"
-                alt="header-logo2.png"
-            > FindHouse</li>
+        <a href="{{ url('admin/dashboard') }}">
+            <li class="header">
+                <img
+                    src="{{ asset('images/header-logo2.png') }}"
+                    alt="header-logo2.png"
+                > FindHouse
+            </li>
+        </a>
         <li class="title"><span>Main</span></li>
-        <li class="treeview"><a href="page-dashboard.html"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
+        <li class="treeview"><a href="{{ url('admin/dashboard') }}"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
         <li class="title"><span>Manage Listings</span></li>
         <li class="treeview">
             <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>Properties</span><i class="fa fa-angle-down pull-right"></i></a>

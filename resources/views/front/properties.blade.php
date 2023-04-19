@@ -291,7 +291,7 @@
                     <div class="row">
                         @foreach ($properties as $item)
                             <div class="col-md-6 col-lg-6">
-                                <div class="feat_property {{ $item->location->sub_city }} {{ $item->service_type }} {{ $item->property_type }} {{ $item->bedroom }} {{ $item->bathroom }} ">
+                                <div class="feat_property home7 style4">
                                     <div class="thumb">
                                         @if (is_array($item->images) || is_object($item->images))
                                             <div class="fp_single_item_slider">

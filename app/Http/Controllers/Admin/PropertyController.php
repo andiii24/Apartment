@@ -187,7 +187,7 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        $property = Property::first($id);
+        $property = Property::find($id);
         $property->property_status = 1;
         $property->save();
 

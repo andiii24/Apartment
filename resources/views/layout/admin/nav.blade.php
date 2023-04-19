@@ -19,7 +19,7 @@
                 </button>
             </div>
             <a
-                href="#"
+                href="{{ url('admin.dashboard') }}"
                 class="navbar_brand float-left dn-smd"
             >
                 <img
@@ -42,13 +42,7 @@
                 data-menu-style="horizontal"
             >
                 <li>
-                    <a href="#"><span class="title">Home</span></a>
-                </li>
-                <li>
-                    <a href="#"><span class="title">Property</span></a>
-                </li>
-                <li class="last">
-                    <a href="page-contact.html"><span class="title">Contact</span></a>
+                    <a href="{{ url('/') }}"><span class="title">Visit Site</span></a>
                 </li>
                 {{-- <li class="user_setting">
                     <div class="dropdown">
@@ -107,14 +101,16 @@
 >
     <div class="mobile-menu">
         <div class="header stylehome1">
-            <div class="main_logo_home2 text-center">
-                <img
-                    class="nav_logo_img img-fluid mt20"
-                    src="{{ asset('images/header-logo2.png') }}"
-                    alt="header-logo2.png"
-                >
-                <span class="mt20">FindHouse</span>
-            </div>
+            <a href="{{ url('admin.dashboard') }}">
+                <div class="main_logo_home2 text-center">
+                    <img
+                        class="nav_logo_img img-fluid mt20"
+                        src="{{ asset('images/header-logo2.png') }}"
+                        alt="header-logo2.png"
+                    >
+                    <span class="mt20">FindHouse</span>
+                </div>
+            </a>
             <ul class="menu_bar_home2">
                 <li class="list-inline-item list_s"><a href="page-register.html"><span class="flaticon-user"></span></a></li>
                 <li class="list-inline-item"><a href="#menu"><span></span></a></li>
@@ -126,11 +122,8 @@
         class="stylehome1"
     >
         <ul>
-            <li><span>Home</span>
+            <li><a href="{{ url('admin/dashboard') }}"><span>Visite Site</span></a>
             </li>
-            <li><a href="page-contact.html">Contact</a></li>
-            <li><a href="page-login.html"><span class="flaticon-user"></span> Login</a></li>
-            <li><a href="page-register.html"><span class="flaticon-edit"></span> Register</a></li>
         </ul>
     </nav>
 </div>
