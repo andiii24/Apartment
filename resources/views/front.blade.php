@@ -1,7 +1,7 @@
 @extends('front.index')
 @section('title', 'Home')
 @section('content')
-    <section class="home-one home1-overlay home1_bgi1">
+    <section class="home1-overlay home-one home1_bgi1">
         <div class="container">
             <div class="row posr">
                 <div class="col-lg-12">
@@ -9,188 +9,230 @@
                         <div class="home-text text-center">
                             <h2 class="fz55">Find Your Dream Home</h2>
                         </div>
-                        <div class="home_adv_srch_opt">
-                            <ul
-                                class="nav nav-pills"
-                                id="pills-tab"
-                                role="tablist"
-                            >
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link active"
-                                        id="pills-home-tab"
-                                        data-toggle="pill"
-                                        href="#pills-home"
-                                        role="tab"
-                                        aria-controls="pills-home"
-                                        aria-selected="true"
-                                    >Buy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link"
-                                        id="pills-profile-tab"
-                                        data-toggle="pill"
-                                        href="#pills-profile"
-                                        role="tab"
-                                        aria-controls="pills-profile"
-                                        aria-selected="false"
-                                    >Rent</a>
-                                </li>
-                            </ul>
-                            <div
-                                class="tab-content home1_adsrchfrm"
-                                id="pills-tabContent"
-                            >
-                                <div
-                                    class="tab-pane fade show active"
-                                    id="pills-home"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-home-tab"
+                        <form
+                            action="{{ route('search') }}"
+                            method="GET"
+                        >
+                            <div class="home_adv_srch_opt">
+                                <ul
+                                    class="nav nav-pills"
+                                    id="pills-tab"
+                                    role="tablist"
                                 >
-                                    <div class="home1-advnc-search">
-                                        <ul class="h1ads_1st_list mb0">
-                                            <li class="list-inline-item">
-                                                <div class="form-group">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputName1"
-                                                        placeholder="Enter keyword..."
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="search_option_two">
-                                                    <div class="candidate_revew_select">
-                                                        <select class="selectpicker w100 show-tick">
-                                                            <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Bungalow</option>
-                                                            <option>Condo</option>
-                                                            <option>House</option>
-                                                            <option>Land</option>
-                                                            <option>Single Family</option>
-                                                        </select>
+                                    <li class="nav-item">
+                                        <div class="form-group">
+
+                                            <a
+                                                class="nav-link active"
+                                                id="pills-home-tab"
+                                                data-toggle="pill"
+                                                href="#pills-home"
+                                                role="tab"
+                                                aria-controls="pills-home"
+                                                aria-selected="true"
+                                                value="buy"
+                                            >Buy</a>
+                                            <input
+                                                type="hidden"
+                                                name="service_type"
+                                                value="buy"
+                                            >
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="form-group">
+                                            <a
+                                                class="nav-link"
+                                                id="pills-profile-tab"
+                                                data-toggle="pill"
+                                                href="#pills-profile"
+                                                role="tab"
+                                                aria-controls="pills-profile"
+                                                aria-selected="false"
+                                            >Rent</a>
+                                            <input
+                                                type="hidden"
+                                                name="service_type"
+                                                value="rent"
+                                            >
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div
+                                    class="tab-content home1_adsrchfrm"
+                                    id="pills-tabContent"
+                                >
+                                    <div
+                                        class="tab-pane fade show active"
+                                        id="pills-home"
+                                        role="tabpanel"
+                                        aria-labelledby="pills-home-tab"
+                                    >
+                                        <div class="home1-advnc-search">
+                                            <ul class="h1ads_1st_list mb0">
+                                                <li class="list-inline-item">
+                                                    <div class="form-group">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="exampleInputName1"
+                                                            placeholder="Enter keyword..."
+                                                            name="search"
+                                                        />
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="form-group">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputEmail"
-                                                        placeholder="Location"
-                                                    />
-                                                    <label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="small_dropdown2">
-                                                    <div
-                                                        id="prncgs"
-                                                        class="btn dd_btn"
-                                                    >
-                                                        <span>Price</span>
-                                                        <label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
-                                                    </div>
-                                                    <div class="dd_content2">
-                                                        <div class="pricing_acontent">
-                                                            <span id="slider-range-value1"></span>
-                                                            <span id="slider-range-value2"></span>
-                                                            <div id="slider"></div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="search_option_two">
+                                                        <div class="candidate_revew_select">
+                                                            <div class="form-group">
+
+                                                                <select
+                                                                    class="selectpicker apartment-filter"
+                                                                    data-live-search="true"
+                                                                    data-width="100%"
+                                                                    name="property_type"
+                                                                >
+                                                                    <option
+                                                                        data-tokens="type1"
+                                                                        disabled
+                                                                        selected
+                                                                    >Property Type</option>
+                                                                    <option data-tokens="type1">Apartama</option>
+                                                                    <option
+                                                                        data-tokens="type1"
+                                                                        value="condominum"
+                                                                    >Condominium</option>
+                                                                    <option
+                                                                        data-tokens="type1"
+                                                                        value="town house"
+                                                                    >Town House</option>
+                                                                    <option
+                                                                        data-tokens="type1"
+                                                                        value="villa"
+                                                                    >Villa</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="search_option_button">
-                                                    <button
-                                                        type="submit"
-                                                        class="btn btn-thm"
-                                                    >Search</button>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-group">
+                                                        <select
+                                                            class="selectpicker apartment-filter"
+                                                            data-live-search="true"
+                                                            data-width="100%"
+                                                            name="location_id"
+                                                        >
+                                                            <option
+                                                                data-tokens="Status1"
+                                                                disabled
+                                                                selected
+                                                            >Location</option>
+                                                            @foreach ($location as $item)
+                                                                <option
+                                                                    data-tokens="Status1"
+                                                                    value="{{ $item->id }}"
+                                                                >{{ $item->sub_city }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="search_option_button">
+                                                        <button
+                                                            type="submit"
+                                                            class="btn btn-thm"
+                                                        >Search</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div
-                                    class="tab-pane fade"
-                                    id="pills-profile"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-profile-tab"
-                                >
-                                    <div class="home1-advnc-search">
-                                        <ul class="h1ads_1st_list mb0">
-                                            <li class="list-inline-item">
-                                                <div class="form-group">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputName2"
-                                                        placeholder="Enter keyword..."
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="search_option_two">
-                                                    <div class="candidate_revew_select">
-                                                        <select class="selectpicker w100 show-tick">
-                                                            <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Bungalow</option>
-                                                            <option>Condo</option>
-                                                            <option>House</option>
-                                                            <option>Land</option>
-                                                            <option>Single Family</option>
+                                    <div
+                                        class="tab-pane fade"
+                                        id="pills-profile"
+                                        role="tabpanel"
+                                        aria-labelledby="pills-profile-tab"
+                                    >
+                                        <div class="home1-advnc-search">
+                                            <ul class="h1ads_1st_list mb0">
+                                                <li class="list-inline-item">
+                                                    <div class="form-group">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="exampleInputName2"
+                                                            placeholder="Enter keyword..."
+                                                        />
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="search_option_two">
+                                                        <div class="form-group candidate_revew_select">
+                                                            <select
+                                                                class="selectpicker apartment-filter"
+                                                                data-live-search="true"
+                                                                data-width="100%"
+                                                                name="property_type"
+                                                            >
+                                                                <option
+                                                                    data-tokens="type1"
+                                                                    disabled
+                                                                    selected
+                                                                >Property Type</option>
+                                                                <option data-tokens="type1">Apartama</option>
+                                                                <option
+                                                                    data-tokens="type1"
+                                                                    value="condominum"
+                                                                >Condominium</option>
+                                                                <option
+                                                                    data-tokens="type1"
+                                                                    value="town house"
+                                                                >Town House</option>
+                                                                <option
+                                                                    data-tokens="type1"
+                                                                    value="villa"
+                                                                >Villa</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-group">
+                                                        <select
+                                                            class="selectpicker apartment-filter"
+                                                            data-live-search="true"
+                                                            data-width="100%"
+                                                            name="location_id"
+                                                        >
+                                                            <option
+                                                                data-tokens="Status1"
+                                                                disabled
+                                                                selected
+                                                            >Location</option>
+                                                            @foreach ($location as $item)
+                                                                <option
+                                                                    data-tokens="Status1"
+                                                                    value="{{ $item->id }}"
+                                                                >{{ $item->sub_city }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="search_option_two">
-                                                    <div class="candidate_revew_select">
-                                                        <select class="selectpicker w100 show-tick">
-                                                            <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Bungalow</option>
-                                                            <option>Condo</option>
-                                                            <option>House</option>
-                                                            <option>Land</option>
-                                                            <option>Single Family</option>
-                                                        </select>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="search_option_button">
+                                                        <button
+                                                            type="submit"
+                                                            class="btn btn-thm"
+                                                        >Search</button>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="form-group">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputEmail3"
-                                                        placeholder="Location"
-                                                    />
-                                                    <label for="exampleInputEmail3"><span class="flaticon-maps-and-flags"></span></label>
-                                                </div>
-                                            </li>
-                                            <li class="custome_fields_520 list-inline-item">
-                                                <div class="navbered">
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <div class="search_option_button">
-                                                    <button
-                                                        type="submit"
-                                                        class="btn btn-thm"
-                                                    >Search</button>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

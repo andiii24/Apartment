@@ -100,6 +100,15 @@
         type="text/javascript"
         src="{{ asset('js/script.js') }}"
     ></script>
+    <script>
+        $(document).ready(function() {
+            // Get the value of the active tab and set the value of the hidden input
+            $('a.nav-link').on('shown.bs.tab', function(event) {
+                var tab = $(event.target).attr('name');
+                $('input[name="service_type"]').val(tab);
+            });
+        });
+    </script>
 
 </body>
 

@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::auth();
 Route::get('properties', [FrontendController::class, 'properties'])->name('properties');
+Route::get('contact_us', [FrontendController::class, 'contact_us'])->name('contact_us');
+Route::post('contact_submit', [FrontendController::class, 'contact_submit'])->name('contact.submit');
 Route::get('search', [FrontendController::class, 'search'])->name('search');
 Route::get('selected-property/{id}', [FrontendController::class, 'property'])->name('property');
 

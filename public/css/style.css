@@ -2885,6 +2885,12 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu>li.last {
     position: relative;
 }
 
+.home_adv_srch_opt form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home_adv_srch_opt .nav-pills {
     border-bottom: none;
     margin: 0 auto;
@@ -4134,7 +4140,6 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
     display: none !important;
 }
 
-.home-one,
 .home-four,
 .home-five,
 .home-seven,
@@ -8948,9 +8953,9 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 /*== Inner Pages Breadcrumb ==*/
 
 .inner_page_breadcrumb {
-    background-image: url(../images/background/inner-pagebg.jpg);
+    background-image: url(../images/background/undraw_teamwork_hpdk.png);
     background-repeat: no-repeat;
-    height: 410px;
+    height: 622px;
     position: relative;
 }
 

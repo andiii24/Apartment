@@ -19,34 +19,18 @@
                             <div class="col-lg-12">
                                 <div class="main-banner-wrapper home10">
                                     <div class="banner-style-one owl-theme owl-carousel">
-                                        <div
-                                            class="slide slide-one"
-                                            style="background-image: url({{ asset('images/home/1.jpg') }});height: 600px;"
-                                        ></div>
-                                        <div
-                                            class="slide slide-one"
-                                            style="background-image: url({{ asset('images/home/2.jpg') }});height: 600px;"
-                                        ></div>
-                                        <div
-                                            class="slide slide-one"
-                                            style="background-image: url({{ asset('images/home/1.jpg') }});height: 600px;"
-                                        ></div>
                                         @if (is_array($properties->images) || is_object($properties->images))
-                                            <div class="banner-style-one owl-theme owl-carousel">
-                                                @foreach ($properties->images as $key => $imagee)
-                                                    <div
-                                                        class="slide slide-one"
-                                                        style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 600px;"
-                                                    ></div>
-                                                @endforeach
-                                            </div>
-                                        @else
-                                            <div class="banner-style-one owl-theme owl-carousel">
+                                            @foreach ($properties->images as $key => $imagee)
                                                 <div
                                                     class="slide slide-one"
-                                                    style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 600px;"
+                                                    style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 750px;"
                                                 ></div>
-                                            </div>
+                                            @endforeach
+                                        @else
+                                            <div
+                                                class="slide slide-one"
+                                                style="background-image: url({{ asset('upload/Property/' . $imagee) }});height: 750px;"
+                                            ></div>
                                         @endif
                                     </div>
                                     <div class="carousel-btn-block banner-carousel-btn">
@@ -293,7 +277,7 @@
                         </div>
                         @foreach ($similar as $item)
                             <div class="col-lg-6">
-                                <div class="feat_property">
+                                <div class="feat_property home7 style4">
                                     <div class="thumb">
                                         @if (is_array($item->images) || is_object($item->images))
                                             <div class="fp_single_item_slider">
@@ -355,7 +339,7 @@
                                         <div class="details">
                                             <div class="tc_content">
                                                 <p class="text-thm">{{ $item->property_type }}</p>
-                                                <h4>{{ $item->name }}</h4>
+                                                <h4>{{ $item->title }}</h4>
                                                 <p><span class="flaticon-placeholder"></span>{{ $item->location->sub_city }}</p>
                                                 <ul class="prop_details mb0">
                                                     <li class="list-inline-item"><a href="#">Beds:{{ $item->bedroom }}</a></li>

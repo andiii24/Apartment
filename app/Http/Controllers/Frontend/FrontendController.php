@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Location;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
 {
@@ -13,7 +15,8 @@ class FrontendController extends Controller
     {
         $properties = Property::all();
         $bole = Property::where('location_id', '1')->count();
-        return view('front', compact('properties', 'bole'));
+        $location = Location::all();
+        return view('front', compact('properties', 'bole', 'location'));
     }
     public function properties()
     {
@@ -30,6 +33,7 @@ class FrontendController extends Controller
     }
     public function search(Request $request)
     {
+        // dd($request->search);
         $location_id = $request->input('location_id');
         $bedroom = $request->input('bedroom');
         $bathroom = $request->input('bathroom');
@@ -67,7 +71,7 @@ class FrontendController extends Controller
         if ($propertyType) {
             $filteredProperties->where('property_type', $propertyType);
         }
-
+        // dd($request->property_type);
         if ($serviceType) {
             $filteredProperties->where('service_type', $serviceType);
         }
@@ -94,5 +98,38 @@ class FrontendController extends Controller
         $location = Location::all();
 
         return view('front.properties', compact('properties', 'location'));
+    }
+    public function contact_us()
+    {
+        return view('front.contact');
+    }
+    public function contact_submit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/contact-us')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // If validation passes, continue with storing the contact info to the database
+        Contact::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'subject' => $request->input('subject'),
+            'message' => $request->input('message'),
+        ]);
+
+        // Redirect to a thank you page
+        return redirect('contact_us');
+
     }
 }

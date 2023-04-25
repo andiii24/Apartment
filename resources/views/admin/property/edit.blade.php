@@ -108,8 +108,8 @@
                                                     <option
                                                         data-tokens="type1"
                                                         value="apratama"
-                                                        @if ($property->property_type == 'apartama') selected @endif
-                                                    >Apartma</option>
+                                                        @if ($property->property_type == 'Apartama') selected @endif
+                                                    >Apartama</option>
                                                     <option
                                                         data-tokens="type1"
                                                         value="condominum"

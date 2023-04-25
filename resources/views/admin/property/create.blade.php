@@ -103,7 +103,7 @@
                                                     <option
                                                         data-tokens="type1"
                                                         value="apratama"
-                                                    >Apartma</option>
+                                                    >Apartama</option>
                                                     <option
                                                         data-tokens="type1"
                                                         value="condominum"

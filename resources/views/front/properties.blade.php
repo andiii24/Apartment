@@ -92,7 +92,7 @@
                                                             disabled
                                                             selected
                                                         >Property Type</option>
-                                                        <option data-tokens="type1">Apartma</option>
+                                                        <option data-tokens="type1">Apartama</option>
                                                         <option
                                                             data-tokens="type1"
                                                             value="condominum"
