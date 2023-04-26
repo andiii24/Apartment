@@ -32,6 +32,12 @@
                 <li><a href="{{ url('admin/add-location') }}"><i class="fa fa-circle"></i> Add Location</a></li>
             </ul>
         </li>
+        <li class="treeview">
+            <a href="page-my-review.html"><i class="fa fa-inbox"></i><span> Messages</span><i class="fa fa-angle-down pull-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a href="{{ url('admin/contacts') }}"><i class="fa fa-circle"></i>Messages</a></li>
+            </ul>
+        </li>
         <li class="title"><span>Manage Account</span></li>
         <li><a href="page-my-profile.html"><i class="flaticon-user"></i> <span>My Profile</span></a></li>
         <li><a href="page-login.html"><i class="flaticon-logout"></i> <span>Logout</span></a></li>

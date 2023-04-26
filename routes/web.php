@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\UserController;
@@ -21,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::auth();
 Route::get('properties', [FrontendController::class, 'properties'])->name('properties');
-Route::get('contact_us', [FrontendController::class, 'contact_us'])->name('contact_us');
-Route::post('contact_submit', [FrontendController::class, 'contact_submit'])->name('contact.submit');
+Route::get('contact-us', [FrontendController::class, 'contact_us'])->name('contact-us');
+Route::post('contact-submit', [FrontendController::class, 'contact_submit'])->name('contact.submit');
 Route::get('search', [FrontendController::class, 'search'])->name('search');
 Route::get('selected-property/{id}', [FrontendController::class, 'property'])->name('property');
 
@@ -53,6 +54,9 @@ Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('edit-user', [UserController::class, 'edit']);
     Route::put('edit-user/{id}', [UserController::class, 'update']);
     Route::get('delete-user/{id}', [UserController::class, 'delete']);
+
+    Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+    Route::get('show-contact/{id}', [ContactUsersController::class, 'show'])->name('contacts');
 
 });
 // Route::prefix('/')->namespace('App\Http\Controllers\Admin')->group(['middleware' => ['admin']], function () {

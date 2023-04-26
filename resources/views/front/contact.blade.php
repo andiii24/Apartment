@@ -31,83 +31,84 @@
                             class="contact_form"
                             id="contact_form"
                             name="contact_form"
-                            action="#"
-                            method="post"
+                            action="{{ route('contact.submit') }}"
+                            method="POST"
                             novalidate="novalidate"
                         >
+                            @csrf
                             <div class="row">
-                                <form
-                                    method="POST"
-                                    action="{{ route('contact.submit') }}"
-                                >
-                                    @csrf
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input
-                                                id="form_name"
-                                                name="form_name"
-                                                class="form-control"
-                                                required="required"
-                                                type="text"
-                                                placeholder="Name"
-                                            >
-                                        </div>
+
+                                @csrf
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input
+                                            id="form_name"
+                                            name="form_name"
+                                            class="form-control"
+                                            required="required"
+                                            type="text"
+                                            placeholder="Name"
+                                        >
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input
-                                                id="form_email"
-                                                name="form_email"
-                                                class="form-control required email"
-                                                required="required"
-                                                type="email"
-                                                placeholder="Email"
-                                            >
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input
+                                            id="form_email"
+                                            name="form_email"
+                                            class="form-control required email"
+                                            required="required"
+                                            type="email"
+                                            placeholder="Email"
+                                        >
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input
-                                                id="form_phone"
-                                                name="form_phone"
-                                                class="form-control required phone"
-                                                required="required"
-                                                type="phone"
-                                                placeholder="Phone"
-                                            >
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input
+                                            id="form_phone"
+                                            name="form_phone"
+                                            class="form-control required phone"
+                                            required="required"
+                                            type="phone"
+                                            placeholder="Phone"
+                                        >
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input
-                                                id="form_subject"
-                                                name="form_subject"
-                                                class="form-control required"
-                                                required="required"
-                                                type="text"
-                                                placeholder="Subject"
-                                            >
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input
+                                            id="form_subject"
+                                            name="form_subject"
+                                            class="form-control required"
+                                            required="required"
+                                            type="text"
+                                            placeholder="Subject"
+                                        >
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <textarea
-                                                id="form_message"
-                                                name="form_message"
-                                                class="form-control required"
-                                                rows="8"
-                                                required="required"
-                                                placeholder="Your Message"
-                                            ></textarea>
-                                        </div>
-                                        <div class="form-group mb0">
-                                            <button
-                                                type="button"
-                                                class="btn btn-lg btn-thm"
-                                            >Send Message</button>
-                                        </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea
+                                            id="form_message"
+                                            name="form_message"
+                                            class="form-control required"
+                                            rows="8"
+                                            required="required"
+                                            placeholder="Your Message"
+                                        ></textarea>
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display(['data-sitekey' => '6Le2cr0kAAAAAG__VAgTeiUCoZdIpq20-hSFh6BW']) !!}
+                                    </div>
+                                    <div class="form-group mb0">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-lg btn-thm"
+                                        >Send Message</button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

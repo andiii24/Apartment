@@ -99,7 +99,7 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        $property = Property::first($id);
+        $property = Property::find($id);
         return view('admin.property.show', compact('property'));
     }
 
@@ -111,7 +111,7 @@ class PropertyController extends Controller
      */
     public function edit($id)
     {
-        $property = Property::first($id);
+        $property = Property::find($id);
         return view('admin.property.edit', compact('property'));
     }
 
@@ -138,7 +138,7 @@ class PropertyController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $property = Property::first($id);
+        $property = Property::find($id);
 
         if (!$property) {
             return redirect()->back()->with('error', 'Property not found.');

@@ -51,7 +51,7 @@
                     <a href="{{ url('/properties') }}"><span class="title">Properties</span></a>
                 </li>
                 <li class="last">
-                    <a href="{{ url('contact_us') }}"><span class="title">Contact Us</span></a>
+                    <a href="{{ url('contact-us') }}"><span class="title">Contact Us</span></a>
                 </li>
                 <li class="list-inline-item list_s">
                     <a

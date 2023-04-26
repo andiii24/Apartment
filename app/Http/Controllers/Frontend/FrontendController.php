@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Location;
 use App\Models\Property;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -106,19 +107,36 @@ class FrontendController extends Controller
     public function contact_submit(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
-            'subject' => 'required',
-            'message' => 'required',
+            'form_name' => 'required',
+            'form_email' => 'required|email',
+            'form_phone' => 'required|numeric',
+            'form_subject' => 'required',
+            'form_message' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
-
+        // dd($request);
         if ($validator->fails()) {
             return redirect('/contact-us')
                 ->withErrors($validator)
                 ->withInput();
         }
 
+        // Validate reCAPTCHA response
+        $client = new Client();
+        $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $request->input('g-recaptcha-response'),
+                'remoteip' => $request->ip(),
+            ],
+        ]);
+        dd($response);
+        $body = json_decode($response->getBody());
+        if (!$body->success) {
+            return redirect('/contact-us')
+                ->withErrors(['captcha' => 'Invalid reCAPTCHA response'])
+                ->withInput();
+        }
         // If validation passes, continue with storing the contact info to the database
         Contact::create([
             'name' => $request->input('name'),
@@ -129,7 +147,7 @@ class FrontendController extends Controller
         ]);
 
         // Redirect to a thank you page
-        return redirect('contact_us');
+        return redirect('/contact-us');
 
     }
 }
